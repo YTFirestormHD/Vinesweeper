@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://bkt4ocoby5156"]
+
+[ext_resource type="Script" uid="uid://b2j3x1rec38lj" path="res://game_board.gd" id="1_xrvgy"]
+[ext_resource type="Script" uid="uid://ct75ey8aos18o" path="res://tile_map_layer.gd" id="2_17g6i"]
+[ext_resource type="Texture2D" uid="uid://ijrf20j6664e" path="res://assets/16x16/button_test_one.png" id="3_j44pg"]
+[ext_resource type="Texture2D" uid="uid://1wdsxh26ucxi" path="res://assets/16x16/Grid_grass.png" id="4_sq65i"]
+[ext_resource type="Texture2D" uid="uid://bnsfu8bj1qpso" path="res://assets/16x16/Grid_uncovered.png" id="5_j44pg"]
+[ext_resource type="Texture2D" uid="uid://dhq3n7r0vkjm5" path="res://assets/16x16/Grid_grass_flagged.png" id="5_sq65i"]
+[ext_resource type="Texture2D" uid="uid://xcsedhffr7t4" path="res://assets/16x16/button_test_two.png" id="6_hhvcl"]
+[ext_resource type="Texture2D" uid="uid://dwu0e8vu87of6" path="res://assets/16x16/button_test_three.png" id="7_df4u8"]
+[ext_resource type="Texture2D" uid="uid://dy6ciwas3cw2o" path="res://assets/16x16/button_test_four.png" id="8_e8fw1"]
+[ext_resource type="Texture2D" uid="uid://mb8s8d1fak3y" path="res://assets/16x16/button_test_five.png" id="9_m8d60"]
+[ext_resource type="Texture2D" uid="uid://b37pwy2wwb1d7" path="res://assets/16x16/button_test_six.png" id="10_0lb81"]
+[ext_resource type="Texture2D" uid="uid://0427fg6y5pfe" path="res://assets/16x16/button_test_seven.png" id="11_t8xbk"]
+
+[sub_resource type="Theme" id="Theme_sq65i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xh13x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j44pg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrvgy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sq65i"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_df4u8"]
+texture = ExtResource("5_j44pg")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy2tf"]
+texture = ExtResource("3_j44pg")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhvcl"]
+texture = ExtResource("4_sq65i")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j44pg"]
+texture = ExtResource("5_sq65i")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmnb1"]
+texture = ExtResource("6_hhvcl")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_347e3"]
+texture = ExtResource("7_df4u8")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ottv"]
+texture = ExtResource("8_e8fw1")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eksnb"]
+texture = ExtResource("9_m8d60")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfc4j"]
+texture = ExtResource("10_0lb81")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wosde"]
+texture = ExtResource("11_t8xbk")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xh13x"]
+sources/2 = SubResource("TileSetAtlasSource_qmnb1")
+sources/1 = SubResource("TileSetAtlasSource_vy2tf")
+sources/3 = SubResource("TileSetAtlasSource_347e3")
+sources/4 = SubResource("TileSetAtlasSource_1ottv")
+sources/5 = SubResource("TileSetAtlasSource_eksnb")
+sources/7 = SubResource("TileSetAtlasSource_wosde")
+sources/6 = SubResource("TileSetAtlasSource_nfc4j")
+sources/10 = SubResource("TileSetAtlasSource_hhvcl")
+sources/0 = SubResource("TileSetAtlasSource_df4u8")
+sources/11 = SubResource("TileSetAtlasSource_j44pg")
+
+[sub_resource type="Theme" id="Theme_j44pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrvgy"]
+bg_color = Color(0.2627451, 0.58431375, 0.34509805, 0.90588236)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xh13x"]
+
+[node name="game_board" type="Node2D" unique_id=2133785510]
+script = ExtResource("1_xrvgy")
+
+[node name="Background" type="Panel" parent="." unique_id=165642071]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_sq65i")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xh13x")
+
+[node name="Result" type="CenterContainer" parent="Background" unique_id=1681606103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Win" type="VBoxContainer" parent="Background/Result" unique_id=860957898]
+layout_mode = 2
+
+[node name="Win" type="Label" parent="Background/Result/Win" unique_id=1586073561]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_j44pg")
+text = "YOU WIN!!!
+:)"
+
+[node name="Back_Button" type="Button" parent="Background/Result/Win" unique_id=855436259]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xrvgy")
+text = "BACK to Main Menu "
+
+[node name="Lose" type="VBoxContainer" parent="Background/Result" unique_id=1457484742]
+layout_mode = 2
+
+[node name="Lose" type="Label" parent="Background/Result/Lose" unique_id=1466010139]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_sq65i")
+text = "YOU BLEW UP!!!
+:("
+
+[node name="Back_Button" type="Button" parent="Background/Result/Lose" unique_id=384991618]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xrvgy")
+text = "BACK to Main Menu "
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=686937696]
+process_mode = 3
+tile_set = SubResource("TileSet_xh13x")
+script = ExtResource("2_17g6i")
+
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer" unique_id=1515077755]
+position = Vector2(576, 320)
+
+[node name="Options" type="Panel" parent="TileMapLayer/Camera2D" unique_id=1721960470]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_j44pg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xrvgy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TileMapLayer/Camera2D/Options" unique_id=443751456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TileMapLayer/Camera2D/Options/VBoxContainer" unique_id=738751143]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TileMapLayer/Camera2D/Options/VBoxContainer" unique_id=1094934569]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Back_Button" type="Button" parent="TileMapLayer/Camera2D/Options/VBoxContainer/VBoxContainer2" unique_id=262321671]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xrvgy")
+text = "BACK to Main Menu "
+
+[node name="Quit_Button" type="Button" parent="TileMapLayer/Camera2D/Options/VBoxContainer" unique_id=843131481]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.6997524, 0.14709762, 0.14778686, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6997524, 0.14709762, 0.14778686, 1)
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xh13x")
+text = "QUIT (LIFE) "
+
+[connection signal="pressed" from="Background/Result/Win/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Background/Result/Lose/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/VBoxContainer2/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
