@@ -29,6 +29,7 @@ func _continue_button_pressed() -> void:
 
 
 func _newgame_button_pressed() -> void:
+	GLOBAL.board_revealed = false
 	GLOBAL.difficulty_board_size = board_size_slider.value
 	GLOBAL.max_bombs = max_bombs_slider.value
 	get_tree().change_scene_to_file("res://game_board.tscn")
