@@ -1,3 +1,6 @@
+TextureRect
+TextureButton
+AnimatedSprite2D
 Label
 VBoxContainer
 Button
@@ -9,6 +12,3 @@ Camera2D
 Node2D
 Control
 Container
-MarginContainer
-TextureRect
-Area2D
