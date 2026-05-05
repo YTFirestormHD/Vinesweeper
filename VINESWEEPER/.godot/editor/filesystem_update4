@@ -1,1 +1,5 @@
+res://tile_map_layer.gd
+res://game_board.gd
 res://game_board.tscn
+res://main_menu.gd
+res://Main_Menu.tscn
