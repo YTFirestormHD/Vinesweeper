@@ -2,3 +2,4 @@ res://game_board.gd
 res://label.gd
 res://main_menu.gd
 res://tile_map_layer.gd
+res://Main_Menu.tscn
