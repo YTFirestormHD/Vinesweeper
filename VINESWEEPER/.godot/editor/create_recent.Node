@@ -1,7 +1,8 @@
+Timer
+Label
 TextureRect
 TextureButton
 AnimatedSprite2D
-Label
 VBoxContainer
 Button
 CenterContainer
@@ -11,4 +12,3 @@ Panel
 Camera2D
 Node2D
 Control
-Container
