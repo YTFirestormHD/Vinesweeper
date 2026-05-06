@@ -1,5 +1,5 @@
 # Godot 4+ specific ignores
-.godot/editor/
+.godot/
 .nomedia
 
 # Godot-specific ignores
