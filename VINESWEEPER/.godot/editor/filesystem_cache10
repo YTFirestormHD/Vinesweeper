@@ -21,7 +21,7 @@ root.gd::GDScript::738044639311603315::1777450337::0::1::::<>Node2D<><>0<>0<><>:
 root.tscn::PackedScene::7780307543976554653::1777450337::0::1::::<><><>0<>0<><>::uid://krrqtn8fpeb0::::res://root.gd
 settings_menu.tscn::PackedScene::7560119282378679178::1777450337::0::1::::<><><>0<>0<><>::uid://8ka73t6pf8qm::::res://assets/ui_main_menu_design/label_continue.png<>uid://dudgr6wmw2r6h::::res://button.gd<>uid://bnq6v01ijj555::::res://assets/ui_main_menu_design/label_new_game.png<>uid://bgoqh4bscm05f::::res://button_2.gd<>uid://bbnr8tcyxk7qx::::res://assets/ui_main_menu_design/label_options.png<>uid://daofr7egbqesl::::res://button_3.gd<>uid://o0fvugq0yfh6::::res://assets/ui_main_menu_design/version.png<>uid://d4n0iidw5w1i4::::res://assets/ui_main_menu_design/characters.png
 tile_map_layer.gd::GDScript::6174319449155740296::1778049651::0::1::::<>TileMapLayer<><>0<>0<><>::
-::res://assets/::1778050011
+::res://assets/::1778050059
 button_test_1_grid.png::CompressedTexture2D::7678097579255680796::1777450337::1777450377::1::::<><><>0<>0<>afe774f9fd33fa38ffbddf6012a0d0ba<>res://.godot/imported/button_test_1_grid.png-d9502f72bd7dd53cf8194e3a4930caca.ctex::
 jungle-landscape-pixel-art-style.png::CompressedTexture2D::3365737694637623627::1778047962::1778050059::1::::<><><>0<>0<>8b918be80103903523c00bbf804c7add<>res://.godot/imported/jungle-landscape-pixel-art-style.png-f691ac99c94a158b80866c02e4840a83.ctex::
 jungle_tempel_v1.png::CompressedTexture2D::5961757110010996499::1777450337::1777450378::1::::<><><>0<>0<>94ef8adfd5052e21ed358bc2c11703a9<>res://.godot/imported/jungle_tempel_v1.png-66cbe70513c603690d7d659a362c80d8.ctex::
@@ -39,9 +39,9 @@ button_test_zero.png::CompressedTexture2D::6799995716645835384::1777450337::1777
 Grid_grass.png::CompressedTexture2D::1870541760566400846::1777450337::1777450377::1::::<><><>0<>0<>34dcd73ca9ce41b825964fc1475b1159<>res://.godot/imported/Grid_grass.png-dbcfeb78a360d458ca8abf6e672da23c.ctex::
 Grid_grass_flagged.png::CompressedTexture2D::7685338999901943130::1777450337::1777450377::1::::<><><>0<>0<>afc6e0a0ecc3419e5770d7023ae2bb15<>res://.godot/imported/Grid_grass_flagged.png-0ce641e8ed9fcb6faabac6784a070a50.ctex::
 Grid_uncovered.png::CompressedTexture2D::3336375486662197806::1777450337::1777450377::1::::<><><>0<>0<>2c825e09e56bdb94673e32398c479cf0<>res://.godot/imported/Grid_uncovered.png-4115f5b56a93a690bd3cc76bc72c52b8.ctex::
-::res://assets/32x32/::1777450608
+::res://assets/32x32/::1778050189
 CoveredGrid_grass.png::CompressedTexture2D::130445111577013045::1777450337::1777450377::1::::<><><>0<>0<>71343aa07c3bebf58dea245e1b812dc2<>res://.godot/imported/CoveredGrid_grass.png-4cf0d56205aac746d17d0f88f0474be7.ctex::
-FlaggedGrid_grass.png::CompressedTexture2D::3364557398522297643::1777450337::1777450377::1::::<><><>0<>0<>f2cebb87f07ccb0d7de10b7099f6c763<>res://.godot/imported/FlaggedGrid_grass.png-15ed834e2f8fb24767d2599766069784.ctex::
+FlaggedGrid_grass.png::CompressedTexture2D::3364557398522297643::1778050189::1778050189::1::::<><><>0<>0<>f2cebb87f07ccb0d7de10b7099f6c763<>res://.godot/imported/FlaggedGrid_grass.png-15ed834e2f8fb24767d2599766069784.ctex::
 Grid_uncovered.png::CompressedTexture2D::9064172734869218675::1777450337::1777450377::1::::<><><>0<>0<>e4e1921f645eb2ed03479cd66f8327d6<>res://.godot/imported/Grid_uncovered.png-a4034620644add36e2900caedf5418f1.ctex::
 Grid_uncovered_1.png::CompressedTexture2D::4090293373341815607::1776842384::1777450608::1::::<><><>0<>0<>e8a76d15e1ed6232df44ecee5195e0a2<>res://.godot/imported/Grid_uncovered_1.png-bb8443510d28d754a666af65d5f51839.ctex::
 Grid_uncovered_2.png::CompressedTexture2D::5562389132050017806::1776842399::1777450608::1::::<><><>0<>0<>39e2df87c03d2088726a48d677a68299<>res://.godot/imported/Grid_uncovered_2.png-d5396e188d07867c96c8c5c02388fcad.ctex::

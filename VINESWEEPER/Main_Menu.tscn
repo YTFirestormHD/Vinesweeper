@@ -3,15 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://d0sjbtwn74bah" path="res://assets/ui_main_menu_design/title.png" id="1_3mro0"]
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
-[ext_resource type="Texture2D" uid="uid://cq66jeqg2ode6" path="res://assets/jungle_tempel_v1.png" id="2_257up"]
+[ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/jungle-landscape-pixel-art-style.png" id="3_5cvai"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
 [ext_resource type="Script" uid="uid://n5yntxa5fbby" path="res://label.gd" id="6_3mro0"]
 [ext_resource type="Texture2D" uid="uid://d4n0iidw5w1i4" path="res://assets/ui_main_menu_design/characters.png" id="6_t301m"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3mro0"]
-texture = ExtResource("2_257up")
-modulate_color = Color(0.46618086, 0.4661808, 0.4661808, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
+texture = ExtResource("3_5cvai")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7k8"]
 
@@ -34,14 +33,14 @@ offset_bottom = 648.0
 theme = ExtResource("1_5cvai")
 script = ExtResource("1_dnfjo")
 
-[node name="Panel" type="Panel" parent="." unique_id=1640718868]
+[node name="Background" type="Panel" parent="." unique_id=1640718868]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_3mro0")
+theme_override_styles/panel = SubResource("StyleBoxTexture_domf7")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=955039536]
 layout_mode = 1
