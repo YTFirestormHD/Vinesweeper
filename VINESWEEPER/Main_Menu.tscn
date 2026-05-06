@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://fu5alj74u2wm"]
 
-[ext_resource type="Texture2D" uid="uid://d0sjbtwn74bah" path="res://assets/ui_main_menu_design/title.png" id="1_3mro0"]
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
 [ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="3_5cvai"]
+[ext_resource type="Texture2D" uid="uid://c4mdvcpgnku3n" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="4_5cvai"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
 [ext_resource type="Script" uid="uid://n5yntxa5fbby" path="res://label.gd" id="6_3mro0"]
 [ext_resource type="Texture2D" uid="uid://d4n0iidw5w1i4" path="res://assets/ui_main_menu_design/characters.png" id="6_t301m"]
@@ -64,7 +64,7 @@ alignment = 1
 
 [node name="Titel" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=98841428]
 layout_mode = 2
-texture = ExtResource("1_3mro0")
+texture = ExtResource("4_5cvai")
 stretch_mode = 2
 
 [node name="Menu_Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=251956791]
@@ -118,6 +118,7 @@ texture = ExtResource("6_t301m")
 stretch_mode = 2
 
 [node name="Options" type="Panel" parent="." unique_id=83902499]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
