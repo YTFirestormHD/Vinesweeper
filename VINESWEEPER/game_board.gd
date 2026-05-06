@@ -50,6 +50,7 @@ func load_background():
 
 
 func result(result_bool):
+	GLOBAL.board_revealed = false
 	if result_bool == true:
 		tml.visible = false
 		win.visible = true

@@ -31,7 +31,7 @@ func _ready() -> void:
 		var bias = randi_range(-2,3)
 		if GLOBAL.difficulty_board_size < 10:
 			bias = randi_range(0,3)
-			print(board_size)
+			#print(board_size)
 			
 		for x in range(GLOBAL.difficulty_board_size + bias):
 			for y in range(GLOBAL.difficulty_board_size):
@@ -41,7 +41,7 @@ func _ready() -> void:
 		GLOBAL.board_size_y = GLOBAL.difficulty_board_size
 
 	var rect = get_used_rect()
-	print("\n-"+str(rect.size.x)+"-\n")
+	#print("\n-"+str(rect.size.x)+"-\n")
 	var center
 	if _is_even(rect.size.x):
 		#print(rect.position)
@@ -105,14 +105,15 @@ func generate_bombs(safe):
 	var max_bombs = round(board_size*GLOBAL.max_bombs/100)
 	NO_BOMBS = BOARD
 	var do_bomb: int
-	for i in range(max_bombs):
-		do_bomb = randi_range(0,board_size)
-		if do_bomb not in BOMB_POSITIONS and do_bomb != safe:
-			BOMB_POSITIONS.append(do_bomb)
-			BOARD.erase(do_bomb)
+	while BOMB_POSITIONS.front() == null:
+		for i in range(max_bombs):
+			do_bomb = randi_range(0,board_size-1)
+			if do_bomb not in BOMB_POSITIONS and do_bomb != safe:
+				BOMB_POSITIONS.append(do_bomb)
+				BOARD.erase(do_bomb)
 	NO_BOMBS = BOARD
 	BOMB_POSITIONS.sort()
-	print(NO_BOMBS)
+	#print(NO_BOMBS)
 	print(BOMB_POSITIONS)
 	GLOBAL.board_revealed = true
 
@@ -145,7 +146,7 @@ func check_around(clicked) -> int:
 		elif get_cell_source_id(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i])) == 10 and any_around == false:
 			if not CHECK_NEXT.has(get_used_cells().find(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i]))):
 				CHECK_NEXT.append(get_used_cells().find(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i])))
-				print("CHECK_NEXT: "+str(CHECK_NEXT))
+				#print("CHECK_NEXT: "+str(CHECK_NEXT))
 	return around_count
 
 
