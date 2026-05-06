@@ -1,2 +1,2 @@
-res://Main_Menu.tscn
-res://game_board.tscn
+res://Level_tree.tscn
+res://level_tree.gd
