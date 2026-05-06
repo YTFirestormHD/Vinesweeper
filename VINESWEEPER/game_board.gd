@@ -38,6 +38,7 @@ func _on_back_button_pressed() -> void:
 
 
 func back_to_title() -> void:
+	tml.safe_game()
 	get_tree().change_scene_to_file("res://Main_Menu.tscn")
 
 

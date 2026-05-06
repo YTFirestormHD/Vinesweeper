@@ -19,52 +19,42 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xh13x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j44pg"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0.5882353)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrvgy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sq65i"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhvcl"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5882353)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8d60"]
 texture = ExtResource("2_sq65i")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0lb81"]
 texture = ExtResource("3_j44pg")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8xbk"]
 texture = ExtResource("4_hhvcl")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iafpe"]
 texture = ExtResource("5_df4u8")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy2tf"]
 texture = ExtResource("6_e8fw1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmnb1"]
+texture = ExtResource("7_j44pg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmnb1"]
 texture = ExtResource("7_j44pg")
@@ -165,7 +155,7 @@ layout_mode = 2
 
 [node name="Lose" type="Label" parent="Background/Result/Lose" unique_id=1466010139]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_sq65i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hhvcl")
 text = "YOU BLEW UP!!!
 :("
 
