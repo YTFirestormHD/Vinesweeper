@@ -41,4 +41,24 @@ Split pathways, random events, a whole bunch of possible item combinations and m
 ***Can you beat the boss before your health runs out?***
 
 
+## Game-Mechanics
+
+Your character has three different Stats which can increase depending on the items you find in your run.
+The stats in question are the following:
+
++ **Health**
+The *Health-Stat* defines the amount of damage you can take until you die. An increase in your *Health-Stat* means that you are likely to live longer and can endure more hits of the bosses you'll fight.
+
++ **Strength**
+The *Strength-Stat* defines the amount of damage you can cause. Increasing the *Strength-Stat* allows you to inflict loads of harm to bosses and so minimizing the number of attacks your opponent can issue.
+
++ **Speed**
+The *Speed-Stat* defines the speed of your attack-cycle relative to the one of the boss you fight. If your *Speed-Stat* is higher then the one of your opponent, your attack-cycle is faster. This allows you to attack your opponent more often.
+
+*Items can either increase your stats or give you completely different advantages.*
+
+In most cases you can see the stats of your opponent so you can compare your current stats to them.
+
+
+
 More infos about the project are found in index.html or just click the link in the "About" section (once a version is playable, you'll find a download there too).
