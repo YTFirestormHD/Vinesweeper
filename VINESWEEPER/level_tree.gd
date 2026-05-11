@@ -1,7 +1,7 @@
 extends Control
 
 
-var count = 3	# irgendein Wert welcher gezählt wurde
+var count = 1	# irgendein Wert welcher gezählt wurde
 @onready var level1 = $Stump/Level1
 @onready var level2 = $Stump2/Level2
 @onready var level3 = $Stump3/Level3
