@@ -1,12 +1,11 @@
-extends Control
+extends Timer
 
 var total_time_in_secs : int = 0
 
 func _ready():
-	pass
 	# start Timer at specific time:
 	# (or use 'Autostart' property)
-	#$Timer.start()
+	$Timer.start()
 
 func on_timer_timeout():
 	total_time_in_secs += 1

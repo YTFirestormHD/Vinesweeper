@@ -93,6 +93,7 @@ func _input(event : InputEvent) -> void:
 	if NO_BOMBS.is_empty() and FLAGGED == BOMB_POSITIONS and GLOBAL.board_revealed == true:
 		print("*************************\nYOU WIN\n*************************")
 		GLOBAL.board_revealed = false
+		print(GLOBAL.board_revealed)
 		$"..".result(true)
 
 	for i in CHECK_NEXT:
@@ -123,6 +124,7 @@ func reveal(clicked):
 		if BOMB_POSITIONS.has(clicked):
 			print("*************************\nYOU BLEW UP\n*************************")
 			GLOBAL.board_revealed = false
+			print(GLOBAL.board_revealed)
 			$"..".result(false)
 		else:
 			NO_BOMBS.erase(clicked)

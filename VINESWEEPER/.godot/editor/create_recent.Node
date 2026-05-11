@@ -1,3 +1,5 @@
+Timer
+Label
 TextureRect
 Label
 TextureButton
@@ -11,4 +13,3 @@ Panel
 Camera2D
 Node2D
 Control
-Container
