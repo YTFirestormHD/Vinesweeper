@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="3_5cvai"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
 [ext_resource type="Script" uid="uid://n5yntxa5fbby" path="res://label.gd" id="6_3mro0"]
+[ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="7_5cvai"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
@@ -210,6 +211,11 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_outline_color = Color(0.87584656, 0.24290001, 0, 1)
 text = "Fullscreen"
+
+[node name="SchriftzugMenuStyled" type="Sprite2D" parent="." unique_id=1695016087]
+position = Vector2(290.75003, 78.25)
+scale = Vector2(1.7910157, 1.8671876)
+texture = ExtResource("7_5cvai")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="." method="_continue_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" method="_on_pressed"]
