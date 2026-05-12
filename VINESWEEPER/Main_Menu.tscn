@@ -2,13 +2,15 @@
 
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
-[ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="3_5cvai"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
 [ext_resource type="Script" uid="uid://n5yntxa5fbby" path="res://label.gd" id="6_3mro0"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_257up"]
+load_path = "res://.godot/imported/jungle-landscape-pixel-art-style.png-d25eed948f0c6e0b84bb2aab2d125bc1.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
-texture = ExtResource("3_5cvai")
+texture = SubResource("CompressedTexture2D_257up")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7k8"]
 

@@ -56,10 +56,11 @@ func load_timer():
 
 
 func result(result_bool):
-	GLOBAL.board_revealed = false
+	#true = win
 	if result_bool == true:
 		tml.visible = false
 		win.visible = true
 	else:
 		tml.visible = false
 		lose.visible = true
+	GLOBAL.board_revealed = false

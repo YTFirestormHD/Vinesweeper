@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2j3x1rec38lj" path="res://game_board.gd" id="1_xrvgy"]
 [ext_resource type="Script" uid="uid://ct75ey8aos18o" path="res://tile_map_layer.gd" id="2_17g6i"]
-[ext_resource type="Script" uid="uid://c3h0mjcd6c2oe" path="res://timer_display.gd" id="2_hhvcl"]
+[ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="2_hhvcl"]
 [ext_resource type="Texture2D" uid="uid://d2e0uol8w1bod" path="res://assets/32x32/Grid_uncovered.png" id="2_sq65i"]
 [ext_resource type="Texture2D" uid="uid://byjmsfuslnw1t" path="res://assets/32x32/Grid_uncovered_1.png" id="3_j44pg"]
 [ext_resource type="Texture2D" uid="uid://b4goagqdert2" path="res://assets/32x32/CoveredGrid_grass.png" id="4_hhvcl"]
@@ -14,10 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://cfille8ctp1t2" path="res://assets/32x32/Grid_uncovered_6.png" id="10_e8fw1"]
 [ext_resource type="Texture2D" uid="uid://xonib762o8ik" path="res://assets/32x32/Grid_uncovered_7.png" id="11_m8d60"]
 [ext_resource type="Texture2D" uid="uid://dnvbv0dyf74rx" path="res://assets/32x32/Grid_uncovered_8.png" id="12_0lb81"]
+[ext_resource type="Script" path="res://timer_display.gd" id="15_df4u8"]
 
 [sub_resource type="Theme" id="Theme_sq65i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xh13x"]
+texture = ExtResource("2_hhvcl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j44pg"]
 bg_color = Color(0.6, 0.6, 0.6, 0.5882353)
@@ -229,7 +231,7 @@ offset_left = -288.0
 offset_top = -72.0
 offset_right = -248.0
 offset_bottom = -56.0
-script = ExtResource("2_hhvcl")
+script = ExtResource("15_df4u8")
 
 [node name="Timer" type="Timer" parent="Timer_Display" unique_id=827696553]
 autostart = true
