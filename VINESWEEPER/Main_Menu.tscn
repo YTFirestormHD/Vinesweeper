@@ -58,12 +58,16 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1694124741]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Titel" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=98841428]
 layout_mode = 2
-stretch_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("7_5cvai")
+stretch_mode = 4
 
 [node name="Menu_Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=251956791]
 layout_mode = 2
@@ -110,9 +114,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_domf7")
 theme_override_font_sizes/font_size = 16
 text = "VERSION 0.1.0"
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=1257857983]
-layout_mode = 2
 
 [node name="Options" type="Panel" parent="." unique_id=83902499]
 visible = false
@@ -211,11 +212,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_outline_color = Color(0.87584656, 0.24290001, 0, 1)
 text = "Fullscreen"
-
-[node name="SchriftzugMenuStyled" type="Sprite2D" parent="." unique_id=1695016087]
-position = Vector2(290.75003, 78.25)
-scale = Vector2(1.7910157, 1.8671876)
-texture = ExtResource("7_5cvai")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="." method="_continue_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" method="_on_pressed"]
