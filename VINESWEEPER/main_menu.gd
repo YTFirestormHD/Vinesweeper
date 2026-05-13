@@ -12,6 +12,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GLOBAL.difficulty_board_size = GLOBAL.difficulty_board_size_basis
+	GLOBAL.max_bombs = GLOBAL.max_bombs_basis
+	GLOBAL.current_level = 1
+	
 	options.visible = false
 	v_box_container.visible = true
 	board_size_slider.set_value(GLOBAL.difficulty_board_size)
@@ -29,16 +33,14 @@ func _continue_button_pressed() -> void:
 	#print(GLOBAL.board_revealed)
 	print(GLOBAL.board_revealed)
 	if GLOBAL.board_revealed == true:
-		get_tree().change_scene_to_file("res://game_board.tscn")
+		get_tree().change_scene_to_file("res://Level_tree.tscn")
 	else:
 		pass
 
 
 func _newgame_button_pressed() -> void:
 	GLOBAL.board_revealed = false
-	GLOBAL.difficulty_board_size = board_size_slider.value
-	GLOBAL.max_bombs = max_bombs_slider.value
-	get_tree().change_scene_to_file("res://game_board.tscn")
+	get_tree().change_scene_to_file("res://Level_tree.tscn")
 
 
 func _options_button_pressed() -> void:

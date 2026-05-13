@@ -1,6 +1,7 @@
 extends TileMapLayer
 @onready var game_board: Node2D = $".."
 
+var game_over: bool = false
 var BOMB_POSITIONS = []
 var NO_BOMBS = []
 var FLAGGED = []
@@ -12,6 +13,7 @@ var REVEALED = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	game_over = false
 	var source_id = 10 # Source ID of your tileset
 	var atlas_coords = Vector2(0, 0) # Coords of tile in atlas
 	if GLOBAL.board_revealed == true:
@@ -28,6 +30,9 @@ func _ready() -> void:
 			set_cell(get_used_cells()[j],11,Vector2(0,0))
 	
 	elif GLOBAL.board_revealed == false:
+		GLOBAL.time_passed = 0
+		GLOBAL.time_seconds = 0
+		GLOBAL.time_minutes = 0
 		var bias = randi_range(-2,3)
 		if GLOBAL.difficulty_board_size < 10:
 			bias = randi_range(0,3)
@@ -92,8 +97,7 @@ func _input(event : InputEvent) -> void:
 
 	if NO_BOMBS.is_empty() and FLAGGED == BOMB_POSITIONS and GLOBAL.board_revealed == true:
 		print("*************************\nYOU WIN\n*************************")
-		GLOBAL.board_revealed = false
-		print(GLOBAL.board_revealed)
+		game_over = true
 		$"..".result(true)
 
 	for i in CHECK_NEXT:
@@ -103,7 +107,11 @@ func _input(event : InputEvent) -> void:
 
 func generate_bombs(safe):
 	var board_size = GLOBAL.board_size_x * GLOBAL.board_size_y
-	var max_bombs = round(board_size*GLOBAL.max_bombs/100)
+	print("bsz+mxb")
+	print(board_size)
+	var max_bombs = ceil(board_size*GLOBAL.max_bombs/100)
+	print(max_bombs)
+	print("///")
 	NO_BOMBS = BOARD
 	var do_bomb: int
 	while BOMB_POSITIONS.front() == null:
@@ -116,15 +124,15 @@ func generate_bombs(safe):
 	BOMB_POSITIONS.sort()
 	#print(NO_BOMBS)
 	print(BOMB_POSITIONS)
-	GLOBAL.board_revealed = true
+	if not game_over:
+		GLOBAL.board_revealed = true
 
 
 func reveal(clicked):
 	if get_cell_source_id(get_used_cells()[clicked]) == 10:
 		if BOMB_POSITIONS.has(clicked):
 			print("*************************\nYOU BLEW UP\n*************************")
-			GLOBAL.board_revealed = false
-			print(GLOBAL.board_revealed)
+			game_over = true
 			$"..".result(false)
 		else:
 			NO_BOMBS.erase(clicked)
