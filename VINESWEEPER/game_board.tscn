@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://xonib762o8ik" path="res://assets/32x32/Grid_uncovered_7.png" id="11_m8d60"]
 [ext_resource type="Texture2D" uid="uid://dnvbv0dyf74rx" path="res://assets/32x32/Grid_uncovered_8.png" id="12_0lb81"]
 [ext_resource type="Script" uid="uid://c3h0mjcd6c2oe" path="res://timer_display.gd" id="15_df4u8"]
+[ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="16_e8fw1"]
 
 [sub_resource type="Theme" id="Theme_sq65i"]
 
@@ -267,6 +268,17 @@ offset_top = -72.0
 offset_right = -248.0
 offset_bottom = -56.0
 script = ExtResource("15_df4u8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=48292420]
+
+[node name="Coin_Display" type="Label" parent="CanvasLayer" unique_id=1066588681]
+offset_left = 1000.0
+offset_top = 10.0
+offset_right = 1144.0
+offset_bottom = 72.0
+text = "
+"
+script = ExtResource("16_e8fw1")
 
 [connection signal="pressed" from="Background/Result/MarginContainer/Win/Continue_Button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Background/Result/MarginContainer/Lose/Back_Button" to="." method="_on_back_button_pressed"]
