@@ -92,14 +92,15 @@ offset_left = 472.0
 offset_top = 448.0
 offset_right = 713.936
 offset_bottom = 656.8
+mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
 [node name="Level1" type="TextureButton" parent="Stump" unique_id=2126159680]
 layout_mode = 0
-offset_left = 64.0
-offset_top = -64.0
-offset_right = 173.0
-offset_bottom = 73.0
+offset_left = 67.0
+offset_top = -65.0
+offset_right = 176.0
+offset_bottom = 72.0
 disabled = true
 texture_normal = ExtResource("2_hp7to")
 texture_pressed = ExtResource("5_brksf")
@@ -129,6 +130,7 @@ offset_left = 296.0
 offset_top = 280.0
 offset_right = 537.936
 offset_bottom = 488.8
+mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
 [node name="Level2" type="TextureButton" parent="Stump2" unique_id=1036617700]
@@ -163,6 +165,7 @@ offset_left = 600.0
 offset_top = 192.0
 offset_right = 848.24994
 offset_bottom = 411.375
+mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
 [node name="Level3" type="TextureButton" parent="Stump3" unique_id=335028645]
@@ -197,6 +200,7 @@ offset_left = 352.0
 offset_top = 64.0
 offset_right = 593.936
 offset_bottom = 272.8
+mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
 [node name="Level4" type="TextureButton" parent="Stump4" unique_id=288557481]
