@@ -1,18 +1,18 @@
 extends Control
 @onready var options: Panel = $"../TileMapLayer/Camera2D/Options"
 
-var total_time_in_secs : int = 0
-
 
 func _ready():
-	# start Timer at specific time:
-	# (or use 'Autostart' property)
-	$Timer.start()
+	pass
 
 
-func _on_timer_timeout():
+func _process(delta: float) -> void:
 	if options.visible == false:
-		total_time_in_secs += 1
-		var m = int(total_time_in_secs / 60.0)
-		var s = total_time_in_secs - m * 60
-		$".".text = '%02d:%02d' % [m, s]
+		GLOBAL.time_passed += delta
+		if GLOBAL.time_passed >= 1:
+			GLOBAL.time_passed = 0
+			GLOBAL.time_seconds += 1
+		if GLOBAL.time_seconds == 60:
+			GLOBAL.time_seconds = 0
+			GLOBAL.time_minutes += 1	
+		$".".text = '%02d:%02d' % [GLOBAL.time_minutes, GLOBAL.time_seconds]

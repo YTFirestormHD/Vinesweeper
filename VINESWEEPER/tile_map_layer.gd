@@ -30,6 +30,9 @@ func _ready() -> void:
 			set_cell(get_used_cells()[j],11,Vector2(0,0))
 	
 	elif GLOBAL.board_revealed == false:
+		GLOBAL.time_passed = 0
+		GLOBAL.time_seconds = 0
+		GLOBAL.time_minutes = 0
 		var bias = randi_range(-2,3)
 		if GLOBAL.difficulty_board_size < 10:
 			bias = randi_range(0,3)
@@ -104,7 +107,11 @@ func _input(event : InputEvent) -> void:
 
 func generate_bombs(safe):
 	var board_size = GLOBAL.board_size_x * GLOBAL.board_size_y
-	var max_bombs = round(board_size*GLOBAL.max_bombs/100)
+	print("bsz+mxb")
+	print(board_size)
+	var max_bombs = ceil(board_size*GLOBAL.max_bombs/100)
+	print(max_bombs)
+	print("///")
 	NO_BOMBS = BOARD
 	var do_bomb: int
 	while BOMB_POSITIONS.front() == null:

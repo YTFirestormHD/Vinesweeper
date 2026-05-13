@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
+[ext_resource type="Script" uid="uid://ceiltsrr7gn24" path="res://label_2.gd" id="5_3mro0"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
-[ext_resource type="Script" uid="uid://n5yntxa5fbby" path="res://label.gd" id="6_3mro0"]
 [ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="7_5cvai"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
 
@@ -12,6 +12,12 @@ load_path = "res://.godot/imported/jungle-landscape-pixel-art-style.png-d25eed94
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
 texture = SubResource("CompressedTexture2D_257up")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mro0"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7k8"]
 
@@ -65,6 +71,7 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Titel" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=98841428]
+material = SubResource("CanvasItemMaterial_3mro0")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
@@ -118,7 +125,6 @@ theme_override_font_sizes/font_size = 16
 text = "VERSION 0.1.0"
 
 [node name="Options" type="Panel" parent="." unique_id=83902499]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,14 +171,11 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=2144321187]
+[node name="Label2" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=48668418]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
-theme_override_colors/font_shadow_color = Color(0, 0.4862745, 0, 1)
-theme_override_font_sizes/font_size = 18
-text = "Difficulty (Board Size)"
-horizontal_alignment = 1
+script = ExtResource("5_3mro0")
 
 [node name="Board_Size_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=125832632]
 custom_minimum_size = Vector2(400, 16)
@@ -184,15 +187,10 @@ min_value = 4.0
 max_value = 19.0
 value = 4.0
 
-[node name="Label2" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=48668418]
+[node name="Label3" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=202353592]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 1
-script = ExtResource("6_3mro0")
-
-[node name="Label4" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1025892240]
-layout_mode = 2
-text = "% of Bomb-Fields"
+script = ExtResource("7_tu7k8")
 
 [node name="Max_Bombs_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1860344930]
 custom_minimum_size = Vector2(400, 16)
@@ -205,14 +203,11 @@ max_value = 80.0
 step = 5.0
 value = 30.0
 
-[node name="Label3" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=202353592]
-layout_mode = 2
-script = ExtResource("7_tu7k8")
-
 [node name="Fullscreen_Button" type="CheckButton" parent="Options/VBoxContainer/VBoxContainer2" unique_id=371425621]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_outline_color = Color(0.87584656, 0.24290001, 0, 1)
+theme_override_constants/h_separation = 4
 text = "Fullscreen"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="." method="_continue_button_pressed"]

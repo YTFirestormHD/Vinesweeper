@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cfille8ctp1t2" path="res://assets/32x32/Grid_uncovered_6.png" id="10_e8fw1"]
 [ext_resource type="Texture2D" uid="uid://xonib762o8ik" path="res://assets/32x32/Grid_uncovered_7.png" id="11_m8d60"]
 [ext_resource type="Texture2D" uid="uid://dnvbv0dyf74rx" path="res://assets/32x32/Grid_uncovered_8.png" id="12_0lb81"]
-[ext_resource type="Script" path="res://timer_display.gd" id="15_df4u8"]
+[ext_resource type="Script" uid="uid://c3h0mjcd6c2oe" path="res://timer_display.gd" id="15_df4u8"]
 
 [sub_resource type="Theme" id="Theme_sq65i"]
 
@@ -25,6 +25,10 @@ texture = ExtResource("2_hhvcl")
 bg_color = Color(0.6, 0.6, 0.6, 0.5882353)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrvgy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhvcl"]
 bg_color = Color(0.6, 0.6, 0.6, 0.5882353)
@@ -132,32 +136,35 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Win" type="VBoxContainer" parent="Background/Result" unique_id=860957898]
+[node name="MarginContainer" type="MarginContainer" parent="Background/Result" unique_id=1532281988]
 layout_mode = 2
 
-[node name="Win" type="Label" parent="Background/Result/Win" unique_id=1586073561]
+[node name="Win" type="VBoxContainer" parent="Background/Result/MarginContainer" unique_id=860957898]
+layout_mode = 2
+
+[node name="Win" type="Label" parent="Background/Result/MarginContainer/Win" unique_id=1586073561]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_j44pg")
 text = "YOU WIN!!!
 :)"
 
-[node name="Back_Button" type="Button" parent="Background/Result/Win" unique_id=855436259]
+[node name="Continue_Button" type="Button" parent="Background/Result/MarginContainer/Win" unique_id=855436259]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xrvgy")
-text = "BACK to Main Menu "
+text = "Continue"
 
-[node name="Lose" type="VBoxContainer" parent="Background/Result" unique_id=1457484742]
+[node name="Lose" type="VBoxContainer" parent="Background/Result/MarginContainer" unique_id=1457484742]
 layout_mode = 2
 
-[node name="Lose" type="Label" parent="Background/Result/Lose" unique_id=1466010139]
+[node name="Lose" type="Label" parent="Background/Result/MarginContainer/Lose" unique_id=1466010139]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_hhvcl")
 text = "YOU BLEW UP!!!
 :("
 
-[node name="Back_Button" type="Button" parent="Background/Result/Lose" unique_id=384991618]
+[node name="Back_Button" type="Button" parent="Background/Result/MarginContainer/Lose" unique_id=384991618]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 34
@@ -171,6 +178,34 @@ script = ExtResource("2_17g6i")
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer" unique_id=1515077755]
 position = Vector2(576, 320)
+
+[node name="Continue_Panel" type="Control" parent="TileMapLayer/Camera2D" unique_id=1088463419]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_j44pg")
+
+[node name="Button" type="Button" parent="TileMapLayer/Camera2D/Continue_Panel" unique_id=102359113]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "HI"
 
 [node name="Options" type="Panel" parent="TileMapLayer/Camera2D" unique_id=1721960470]
 custom_minimum_size = Vector2(100, 100)
@@ -233,11 +268,7 @@ offset_right = -248.0
 offset_bottom = -56.0
 script = ExtResource("15_df4u8")
 
-[node name="Timer" type="Timer" parent="Timer_Display" unique_id=827696553]
-autostart = true
-
-[connection signal="pressed" from="Background/Result/Win/Back_Button" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Background/Result/Lose/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Background/Result/MarginContainer/Win/Continue_Button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Background/Result/MarginContainer/Lose/Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/VBoxContainer2/Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
-[connection signal="timeout" from="Timer_Display/Timer" to="Timer_Display" method="_on_timer_timeout"]
