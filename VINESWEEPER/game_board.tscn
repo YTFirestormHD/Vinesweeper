@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ct75ey8aos18o" path="res://tile_map_layer.gd" id="2_17g6i"]
 [ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="2_hhvcl"]
 [ext_resource type="Texture2D" uid="uid://d2e0uol8w1bod" path="res://assets/32x32/Grid_uncovered.png" id="2_sq65i"]
+[ext_resource type="Script" uid="uid://crb33g5udun75" path="res://win.gd" id="3_e8fw1"]
 [ext_resource type="Texture2D" uid="uid://byjmsfuslnw1t" path="res://assets/32x32/Grid_uncovered_1.png" id="3_j44pg"]
 [ext_resource type="Texture2D" uid="uid://b4goagqdert2" path="res://assets/32x32/CoveredGrid_grass.png" id="4_hhvcl"]
 [ext_resource type="Texture2D" uid="uid://bn621eyl8cxgd" path="res://assets/32x32/FlaggedGrid_grass.png" id="5_df4u8"]
@@ -145,8 +146,7 @@ layout_mode = 2
 [node name="Win" type="Label" parent="Background/Result/MarginContainer/Win" unique_id=1586073561]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_j44pg")
-text = "YOU WIN!!!
-:)"
+script = ExtResource("3_e8fw1")
 
 [node name="Continue_Button" type="Button" parent="Background/Result/MarginContainer/Win" unique_id=855436259]
 layout_mode = 2
@@ -261,14 +261,16 @@ theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xh13x")
 text = "QUIT (LIFE) "
 
-[node name="Timer_Display" type="Label" parent="." unique_id=591539622]
+[node name="Timer" type="Label" parent="." unique_id=591539622]
 offset_left = -288.0
 offset_top = -72.0
 offset_right = -248.0
 offset_bottom = -56.0
 script = ExtResource("15_df4u8")
 
+[connection signal="visibility_changed" from="Background/Result/MarginContainer/Win/Win" to="Background/Result/MarginContainer/Win/Win" method="_on_visibility_changed"]
 [connection signal="pressed" from="Background/Result/MarginContainer/Win/Continue_Button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Background/Result/MarginContainer/Lose/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TileMapLayer/Camera2D/Continue_Panel/Button" to="TileMapLayer" method="_on_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/VBoxContainer2/Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
