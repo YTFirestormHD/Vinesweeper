@@ -2,7 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
-[ext_resource type="Script" uid="uid://ceiltsrr7gn24" path="res://label_2.gd" id="5_3mro0"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
 [ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="7_5cvai"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
@@ -168,7 +167,6 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
-script = ExtResource("5_3mro0")
 
 [node name="Board_Size_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=125832632]
 custom_minimum_size = Vector2(400, 16)

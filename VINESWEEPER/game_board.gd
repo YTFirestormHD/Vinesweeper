@@ -51,7 +51,7 @@ func back_to_title() -> void:
 
 func back_to_levels():
 	GLOBAL.current_level += 1
-	if GLOBAL.current_level == 5:										#fixed level amount like this is stupid! F**k scrum!!!
+	if GLOBAL.current_level == 5:
 		print("no win screen for now\ngame will now close\n:(")
 		get_tree().quit()
 	get_tree().change_scene_to_file("res://Level_tree.tscn")

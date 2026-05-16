@@ -23,13 +23,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_acmle")
 
-[node name="Background1" type="TextureRect" parent="." unique_id=328355635]
+[node name="Map" type="TextureRect" parent="." unique_id=328355635]
 layout_mode = 0
 offset_right = 1168.0
-offset_bottom = 648.0
+offset_bottom = 2500.0
 texture = ExtResource("2_brksf")
 
-[node name="Tree" type="TextureRect" parent="Background1" unique_id=980888652]
+[node name="Tree" type="TextureRect" parent="Map" unique_id=980888652]
 layout_mode = 0
 offset_left = 728.0
 offset_top = -328.0
@@ -38,7 +38,7 @@ offset_bottom = 312.0
 texture = ExtResource("3_htig3")
 expand_mode = 1
 
-[node name="Tree2" type="TextureRect" parent="Background1" unique_id=1372748946]
+[node name="Tree2" type="TextureRect" parent="Map" unique_id=1372748946]
 layout_mode = 0
 offset_left = 744.0
 offset_top = -80.0
@@ -47,7 +47,7 @@ offset_bottom = 560.0
 texture = ExtResource("3_htig3")
 expand_mode = 1
 
-[node name="Tree3" type="TextureRect" parent="Background1" unique_id=1907478687]
+[node name="Tree3" type="TextureRect" parent="Map" unique_id=1907478687]
 layout_mode = 0
 offset_left = 744.0
 offset_top = 184.0
@@ -56,7 +56,7 @@ offset_bottom = 824.0
 texture = ExtResource("3_htig3")
 expand_mode = 1
 
-[node name="Tree4" type="TextureRect" parent="Background1" unique_id=824886750]
+[node name="Tree4" type="TextureRect" parent="Map" unique_id=824886750]
 layout_mode = 0
 offset_left = -288.0
 offset_top = -312.0
@@ -65,7 +65,7 @@ offset_bottom = 328.0
 texture = ExtResource("3_htig3")
 expand_mode = 1
 
-[node name="Tree5" type="TextureRect" parent="Background1" unique_id=1768011753]
+[node name="Tree5" type="TextureRect" parent="Map" unique_id=1768011753]
 layout_mode = 0
 offset_left = -280.0
 offset_top = -88.0
@@ -74,12 +74,12 @@ offset_bottom = 552.0
 texture = ExtResource("3_htig3")
 expand_mode = 1
 
-[node name="Tree6" type="TextureRect" parent="Background1" unique_id=1128963671]
+[node name="Tree6" type="TextureRect" parent="Map" unique_id=1128963671]
 layout_mode = 0
-offset_left = -312.0
-offset_top = 112.0
-offset_right = 392.0
-offset_bottom = 752.0
+offset_left = -304.0
+offset_top = 184.0
+offset_right = 400.0
+offset_bottom = 824.0
 texture = ExtResource("3_htig3")
 expand_mode = 1
 
@@ -213,6 +213,9 @@ texture_normal = ExtResource("8_2oiu0")
 texture_pressed = ExtResource("9_y3mx6")
 texture_hover = ExtResource("9_y3mx6")
 stretch_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1285591507]
+anchor_mode = 0
 
 [connection signal="pressed" from="Stump/Level1" to="." method="_on_number_pressed"]
 [connection signal="pressed" from="Stump2/Level2" to="." method="_on_number_pressed"]
