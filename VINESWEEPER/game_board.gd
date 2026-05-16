@@ -4,8 +4,8 @@ extends Node2D
 @onready var tml: TileMapLayer = $TileMapLayer
 @onready var lose: VBoxContainer = $Background/Result/MarginContainer/Lose
 @onready var win: VBoxContainer = $Background/Result/MarginContainer/Win
-@onready var timer_display: Label = $Timer_Display
-@onready var coin_display: Label = $CanvasLayer/Coin_Display
+@onready var timer: Label = $Timer
+
 
 var delta = 1/60
 
@@ -14,7 +14,6 @@ var delta = 1/60
 func _ready() -> void:
 	load_background()
 	load_timer()
-	load_coins()
 	options.visible = false
 	win.visible = false
 	lose.visible = false
@@ -67,11 +66,7 @@ func load_background():
 
 
 func load_timer():
-	timer_display.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
-
-
-func load_coins():
-	coin_display.update_text()
+	timer.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
 
 
 func result(result_win):
@@ -79,7 +74,6 @@ func result(result_win):
 	if result_win == true:
 		tml.visible = false
 		win.visible = true
-		coin_display.add_coin()
 	else:
 		tml.visible = false
 		lose.visible = true
@@ -91,3 +85,5 @@ func reset_game():
 	GLOBAL.difficulty_board_size = GLOBAL.difficulty_board_size_basis
 	GLOBAL.max_bombs = GLOBAL.max_bombs_basis
 	GLOBAL.current_level = 1
+	GLOBAL.coins = 0
+	GLOBAL.new_coins = 0

@@ -72,46 +72,59 @@ func _process(delta: float) -> void:
 
 
 func _input(event : InputEvent) -> void:
-	var m_pos: Vector2 = get_global_mouse_position()
-	if get_used_rect().has_point(m_pos/32):
-		var clicked = get_used_cells().find(Vector2(m_pos.x/32,m_pos.y/32))
-		if (event.is_action_pressed("action")):
-			if GLOBAL.board_revealed == false:
-				generate_bombs(clicked)
-			reveal(clicked)
-				#print("\n***"+str(FLAGGED)+" =?= "+str(BOMB_POSITIONS)+"***\n")
+	if game_over == false:
+		var m_pos: Vector2 = get_global_mouse_position()
+		if get_used_rect().has_point(m_pos/32):
+			var clicked = get_used_cells().find(Vector2(m_pos.x/32,m_pos.y/32))
+			if (event.is_action_pressed("action")):
+				if GLOBAL.board_revealed == false:
+					generate_bombs(clicked)
+				reveal(clicked)
+					#print("\n***"+str(FLAGGED)+" =?= "+str(BOMB_POSITIONS)+"***\n")
 
-		if (event.is_action_pressed("action_r")):
-				if get_cell_source_id(get_used_cells()[clicked]) == 10:
-					set_cell(get_used_cells()[clicked],11,Vector2(0,0))
-					if FLAGGED.has(get_used_cells()[clicked]) == false:
-						FLAGGED.append(clicked)
+			if (event.is_action_pressed("action_r")):
+					if get_cell_source_id(get_used_cells()[clicked]) == 10:
+						set_cell(get_used_cells()[clicked],11,Vector2(0,0))
+						if FLAGGED.has(get_used_cells()[clicked]) == false:
+							FLAGGED.append(clicked)
+							FLAGGED.sort()
+							#print(FLAGGED)
+						
+					elif get_cell_source_id(get_used_cells()[clicked]) == 11:
+						set_cell(get_used_cells()[clicked],10,Vector2(0,0))
+						FLAGGED.erase(clicked)
 						FLAGGED.sort()
 						#print(FLAGGED)
-					
-				elif get_cell_source_id(get_used_cells()[clicked]) == 11:
-					set_cell(get_used_cells()[clicked],10,Vector2(0,0))
-					FLAGGED.erase(clicked)
-					FLAGGED.sort()
-					#print(FLAGGED)
 
-	if NO_BOMBS.is_empty() and FLAGGED == BOMB_POSITIONS and GLOBAL.board_revealed == true:
-		print("*************************\nYOU WIN\n*************************")
-		game_over = true
-		$"..".result(true)
+		if NO_BOMBS.is_empty() and FLAGGED == BOMB_POSITIONS and GLOBAL.board_revealed == true:
+			win()
 
-	for i in CHECK_NEXT:
-		#check_reveal(i)
-		reveal(i)
+		for i in CHECK_NEXT:
+			#check_reveal(i)
+			reveal(i)
+
+
+func win():
+	print("*************************\nYOU WIN\n*************************")
+	calc_income()
+	game_over = true
+	$"../Timer".set_process(false)
+	$"..".result(true)
+
+func death():
+	print("*************************\nYOU BLEW UP\n*************************")
+	game_over = true
+	$"../Timer".set_process(false)
+	$"..".result(false)
 
 
 func generate_bombs(safe):
 	var board_size = GLOBAL.board_size_x * GLOBAL.board_size_y
-	print("bsz+mxb")
-	print(board_size)
+	#print("bsz+mxb")
+	#print(board_size)
 	var max_bombs = ceil(board_size*GLOBAL.max_bombs/100)
-	print(max_bombs)
-	print("///")
+	#print(max_bombs)
+	#print("///")
 	NO_BOMBS = BOARD
 	var do_bomb: int
 	while BOMB_POSITIONS.front() == null:
@@ -123,7 +136,7 @@ func generate_bombs(safe):
 	NO_BOMBS = BOARD
 	BOMB_POSITIONS.sort()
 	#print(NO_BOMBS)
-	print(BOMB_POSITIONS)
+	#print(BOMB_POSITIONS)
 	if not game_over:
 		GLOBAL.board_revealed = true
 
@@ -131,9 +144,7 @@ func generate_bombs(safe):
 func reveal(clicked):
 	if get_cell_source_id(get_used_cells()[clicked]) == 10:
 		if BOMB_POSITIONS.has(clicked):
-			print("*************************\nYOU BLEW UP\n*************************")
-			game_over = true
-			$"..".result(false)
+			death()
 		else:
 			NO_BOMBS.erase(clicked)
 			REVEALED.append(clicked)
@@ -164,7 +175,31 @@ func check_reveal(cell):
 	pass
 
 
+func calc_income():
+	var time_taken = GLOBAL.time_minutes*60 * GLOBAL.time_seconds
+	var correct = 0
+	var incorrect = 0
+	for i in FLAGGED:
+		if i in BOMB_POSITIONS:
+			correct += 1
+		else:
+			incorrect += 1
+	print("###########")
+	print("cor: "+str(correct))
+	print("inc: "+str(incorrect))
+	print("time:"+str(time_taken/5))
+	var new_coins =  correct - time_taken/5 - incorrect
+	GLOBAL.new_coins = new_coins if new_coins > 0 else 0 
+	print("new: "+str(GLOBAL.new_coins))
+	print("############")
+	GLOBAL.coins += GLOBAL.new_coins
+
+
 func safe_game():
 	GLOBAL.BOMBS_safe = BOMB_POSITIONS
 	GLOBAL.REVEALED_safe = REVEALED
 	GLOBAL.FLAGGED_safe = FLAGGED
+
+
+func _on_button_pressed() -> void:
+	win()
