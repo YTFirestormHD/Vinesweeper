@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://kcgx2dqjv2li" path="res://level_tree.gd" id="1_acmle"]
 [ext_resource type="Texture2D" uid="uid://cy24srvve040v" path="res://assets/Level-Tree/tree_stump_pixels_by_fredmalm_dc7rg9h-fullview.png" id="1_iueuf"]
-[ext_resource type="Texture2D" uid="uid://bivcos6r5sjt4" path="res://assets/Level-Tree/abstract-light-green-pixelated-pattern-260nw-321114041.png" id="2_brksf"]
 [ext_resource type="Texture2D" uid="uid://b5kkhi4v6rd7v" path="res://assets/Level-Tree/Number 1.png" id="2_hp7to"]
-[ext_resource type="Texture2D" uid="uid://c5xuyh0asbfil" path="res://assets/Level-Tree/tree.png" id="3_htig3"]
+[ext_resource type="Texture2D" uid="uid://bu6wuodyyjt31" path="res://assets/Level-Tree/map_empty.png" id="2_htig3"]
+[ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_pu6sp"]
 [ext_resource type="Texture2D" uid="uid://d02onc7sb3ce4" path="res://assets/Level-Tree/Number 1 pressed.png" id="5_brksf"]
 [ext_resource type="Texture2D" uid="uid://2kycc6nwd4ec" path="res://assets/Level-Tree/Connecting Vine.png" id="6_2oiu0"]
 [ext_resource type="Texture2D" uid="uid://bwbokflaawwgb" path="res://assets/Level-Tree/Number 3.png" id="6_gv1g5"]
@@ -25,150 +25,67 @@ script = ExtResource("1_acmle")
 
 [node name="Map" type="TextureRect" parent="." unique_id=328355635]
 layout_mode = 0
-offset_right = 1168.0
-offset_bottom = 2500.0
-texture = ExtResource("2_brksf")
+offset_top = -24.0
+offset_right = 1152.0
+offset_bottom = 1302.0
+texture = ExtResource("2_htig3")
 
-[node name="Tree" type="TextureRect" parent="Map" unique_id=980888652]
-layout_mode = 0
-offset_left = 728.0
-offset_top = -328.0
-offset_right = 1432.0
-offset_bottom = 312.0
-texture = ExtResource("3_htig3")
-expand_mode = 1
+[node name="coin_display" type="Label" parent="Map" unique_id=1926137159]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_top = 144.0
+offset_right = -122.0
+offset_bottom = 160.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+script = ExtResource("2_pu6sp")
 
-[node name="Tree2" type="TextureRect" parent="Map" unique_id=1372748946]
-layout_mode = 0
-offset_left = 744.0
-offset_top = -80.0
-offset_right = 1448.0
-offset_bottom = 560.0
-texture = ExtResource("3_htig3")
-expand_mode = 1
+[node name="Stumps (temp)" type="Control" parent="." unique_id=886622178]
+anchors_preset = 0
+offset_top = 209.0
+offset_right = 1152.0
+offset_bottom = 857.0
 
-[node name="Tree3" type="TextureRect" parent="Map" unique_id=1907478687]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 184.0
-offset_right = 1448.0
-offset_bottom = 824.0
-texture = ExtResource("3_htig3")
-expand_mode = 1
-
-[node name="Tree4" type="TextureRect" parent="Map" unique_id=824886750]
-layout_mode = 0
-offset_left = -288.0
-offset_top = -312.0
-offset_right = 416.0
-offset_bottom = 328.0
-texture = ExtResource("3_htig3")
-expand_mode = 1
-
-[node name="Tree5" type="TextureRect" parent="Map" unique_id=1768011753]
-layout_mode = 0
-offset_left = -280.0
-offset_top = -88.0
-offset_right = 424.0
-offset_bottom = 552.0
-texture = ExtResource("3_htig3")
-expand_mode = 1
-
-[node name="Tree6" type="TextureRect" parent="Map" unique_id=1128963671]
-layout_mode = 0
-offset_left = -304.0
-offset_top = 184.0
-offset_right = 400.0
-offset_bottom = 824.0
-texture = ExtResource("3_htig3")
-expand_mode = 1
-
-[node name="Stump" type="TextureRect" parent="." unique_id=657882203]
+[node name="Stump4" type="TextureRect" parent="Stumps (temp)" unique_id=1365311986]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.007
 anchor_bottom = 0.025
-offset_left = 472.0
-offset_top = 448.0
-offset_right = 713.936
-offset_bottom = 656.8
+offset_left = 686.0
+offset_top = 384.0
+offset_right = 935.72
+offset_bottom = 608.0
 mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
-[node name="Level1" type="TextureButton" parent="Stump" unique_id=2126159680]
-layout_mode = 0
-offset_left = 67.0
-offset_top = -65.0
-offset_right = 176.0
-offset_bottom = 72.0
-disabled = true
-texture_normal = ExtResource("2_hp7to")
-texture_pressed = ExtResource("5_brksf")
-texture_hover = ExtResource("5_brksf")
-stretch_mode = 0
-
-[node name="Connecting Vine" type="TextureRect" parent="Stump" unique_id=1338902075]
-z_index = 4
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.086
-anchor_right = 0.07700001
-offset_left = -18.499989
-offset_top = -72.000015
-offset_right = 21.17628
-offset_bottom = 92.43541
-rotation = -0.5235988
-texture = ExtResource("6_2oiu0")
-expand_mode = 1
-
-[node name="Stump2" type="TextureRect" parent="." unique_id=1496326762]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.007
-anchor_bottom = 0.025
-offset_left = 296.0
-offset_top = 280.0
-offset_right = 537.936
-offset_bottom = 488.8
-mouse_filter = 2
-texture = ExtResource("1_iueuf")
-
-[node name="Level2" type="TextureButton" parent="Stump2" unique_id=1036617700]
+[node name="Level4" type="TextureButton" parent="Stumps (temp)/Stump4" unique_id=288557481]
 layout_mode = 0
 offset_left = 48.0
-offset_top = -96.0
-offset_right = 199.0
-offset_bottom = 81.0
-disabled = true
-texture_normal = ExtResource("9_htig3")
-texture_pressed = ExtResource("10_pu6sp")
-texture_hover = ExtResource("10_pu6sp")
+offset_top = -88.0
+offset_right = 182.0
+offset_bottom = 73.0
+texture_normal = ExtResource("8_2oiu0")
+texture_pressed = ExtResource("9_y3mx6")
+texture_hover = ExtResource("9_y3mx6")
 stretch_mode = 0
 
-[node name="Connecting Vine" type="TextureRect" parent="Stump2" unique_id=2101027693]
-z_index = 1
-layout_mode = 0
-offset_left = 344.0
-offset_top = -64.0
-offset_right = 456.22412
-offset_bottom = 144.29553
-rotation = 1.0471976
-texture = ExtResource("6_2oiu0")
-expand_mode = 1
-
-[node name="Stump3" type="TextureRect" parent="." unique_id=1512598171]
+[node name="Stump3" type="TextureRect" parent="Stumps (temp)" unique_id=1512598171]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.007
 anchor_bottom = 0.025
-offset_left = 600.0
-offset_top = 192.0
-offset_right = 848.24994
-offset_bottom = 411.375
+offset_left = 493.0
+offset_top = 259.0
+offset_right = 742.7199
+offset_bottom = 483.0
 mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
-[node name="Level3" type="TextureButton" parent="Stump3" unique_id=335028645]
+[node name="Level3" type="TextureButton" parent="Stumps (temp)/Stump3" unique_id=335028645]
 layout_mode = 0
 offset_left = 64.0
 offset_top = -72.0
@@ -180,44 +97,94 @@ texture_pressed = ExtResource("7_y3mx6")
 texture_hover = ExtResource("7_y3mx6")
 stretch_mode = 0
 
-[node name="Connecting Vine" type="TextureRect" parent="Stump3" unique_id=17439265]
+[node name="Connecting Vine" type="TextureRect" parent="Stumps (temp)/Stump3" unique_id=17439265]
 z_index = 1
 layout_mode = 0
-offset_left = -103.99999
-offset_top = -16.0
-offset_right = -24.867119
-offset_bottom = 181.12656
-rotation = -1.0471976
+offset_left = 303.0
+offset_top = 279.0
+offset_right = 382.13287
+offset_bottom = 476.1266
+rotation = -3.926991
 texture = ExtResource("6_2oiu0")
 expand_mode = 1
 
-[node name="Stump4" type="TextureRect" parent="." unique_id=1365311986]
+[node name="Stump" type="TextureRect" parent="Stumps (temp)" unique_id=657882203]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.007
 anchor_bottom = 0.025
-offset_left = 352.0
-offset_top = 64.0
-offset_right = 593.936
-offset_bottom = 272.8
+offset_left = 542.0
+offset_top = 11.0
+offset_right = 791.72
+offset_bottom = 235.00002
 mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
-[node name="Level4" type="TextureButton" parent="Stump4" unique_id=288557481]
+[node name="Level1" type="TextureButton" parent="Stumps (temp)/Stump" unique_id=2126159680]
+layout_mode = 0
+offset_left = 67.0
+offset_top = -65.0
+offset_right = 176.0
+offset_bottom = 72.0
+disabled = true
+texture_normal = ExtResource("2_hp7to")
+texture_pressed = ExtResource("5_brksf")
+texture_hover = ExtResource("5_brksf")
+stretch_mode = 0
+
+[node name="Connecting Vine" type="TextureRect" parent="Stumps (temp)/Stump" unique_id=1338902075]
+z_index = 4
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.086
+anchor_right = 0.07700001
+offset_left = -16.830576
+offset_top = 264.0
+offset_right = 22.8457
+offset_bottom = 428.43542
+rotation = -2.0943952
+texture = ExtResource("6_2oiu0")
+expand_mode = 1
+
+[node name="Stump2" type="TextureRect" parent="Stumps (temp)" unique_id=1496326762]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+anchor_bottom = 0.025
+offset_left = 313.0
+offset_top = 115.0
+offset_right = 562.72
+offset_bottom = 339.0
+mouse_filter = 2
+texture = ExtResource("1_iueuf")
+
+[node name="Level2" type="TextureButton" parent="Stumps (temp)/Stump2" unique_id=1036617700]
 layout_mode = 0
 offset_left = 48.0
-offset_top = -88.0
-offset_right = 182.0
-offset_bottom = 73.0
-texture_normal = ExtResource("8_2oiu0")
-texture_pressed = ExtResource("9_y3mx6")
-texture_hover = ExtResource("9_y3mx6")
+offset_top = -96.0
+offset_right = 199.0
+offset_bottom = 81.0
+disabled = true
+texture_normal = ExtResource("9_htig3")
+texture_pressed = ExtResource("10_pu6sp")
+texture_hover = ExtResource("10_pu6sp")
 stretch_mode = 0
+
+[node name="Connecting Vine" type="TextureRect" parent="Stumps (temp)/Stump2" unique_id=2101027693]
+z_index = 1
+layout_mode = 0
+offset_left = 296.0
+offset_top = 308.0
+offset_right = 408.22412
+offset_bottom = 516.29553
+rotation = 2.6179938
+texture = ExtResource("6_2oiu0")
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1285591507]
 anchor_mode = 0
 
-[connection signal="pressed" from="Stump/Level1" to="." method="_on_number_pressed"]
-[connection signal="pressed" from="Stump2/Level2" to="." method="_on_number_pressed"]
-[connection signal="pressed" from="Stump3/Level3" to="." method="_on_number_pressed"]
-[connection signal="pressed" from="Stump4/Level4" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="Stumps (temp)/Stump4/Level4" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="Stumps (temp)/Stump3/Level3" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="Stumps (temp)/Stump/Level1" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="Stumps (temp)/Stump2/Level2" to="." method="_on_number_pressed"]

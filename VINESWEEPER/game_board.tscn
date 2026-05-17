@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://crb33g5udun75" path="res://win.gd" id="3_e8fw1"]
 [ext_resource type="Texture2D" uid="uid://byjmsfuslnw1t" path="res://assets/32x32/Grid_uncovered_1.png" id="3_j44pg"]
 [ext_resource type="Texture2D" uid="uid://b4goagqdert2" path="res://assets/32x32/CoveredGrid_grass.png" id="4_hhvcl"]
+[ext_resource type="Script" uid="uid://mojxa5e4hlao" path="res://lose.gd" id="4_m8d60"]
 [ext_resource type="Texture2D" uid="uid://bn621eyl8cxgd" path="res://assets/32x32/FlaggedGrid_grass.png" id="5_df4u8"]
 [ext_resource type="Texture2D" uid="uid://clip0bgx2o85o" path="res://assets/32x32/Grid_uncovered_2.png" id="6_e8fw1"]
 [ext_resource type="Texture2D" uid="uid://b3qie60ytm5ih" path="res://assets/32x32/Grid_uncovered_3.png" id="7_j44pg"]
@@ -163,6 +164,7 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_hhvcl")
 text = "YOU BLEW UP!!!
 :("
+script = ExtResource("4_m8d60")
 
 [node name="Back_Button" type="Button" parent="Background/Result/MarginContainer/Lose" unique_id=384991618]
 layout_mode = 2
@@ -270,7 +272,9 @@ script = ExtResource("15_df4u8")
 
 [connection signal="visibility_changed" from="Background/Result/MarginContainer/Win/Win" to="Background/Result/MarginContainer/Win/Win" method="_on_visibility_changed"]
 [connection signal="pressed" from="Background/Result/MarginContainer/Win/Continue_Button" to="." method="_on_continue_button_pressed"]
+[connection signal="visibility_changed" from="Background/Result/MarginContainer/Lose/Lose" to="Background/Result/MarginContainer/Lose/Lose" method="_on_visibility_changed"]
 [connection signal="pressed" from="Background/Result/MarginContainer/Lose/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="visibility_changed" from="Background/Result/MarginContainer/Lose/Back_Button" to="Background/Result/MarginContainer/Lose/Lose" method="_on_back_button_visibility_changed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Continue_Panel/Button" to="TileMapLayer" method="_on_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/VBoxContainer2/Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Camera2D/Options/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

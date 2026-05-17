@@ -1,5 +1,7 @@
 extends TileMapLayer
 @onready var game_board: Node2D = $".."
+@onready var options: Panel = $Camera2D/Options
+
 
 var game_over: bool = false
 var BOMB_POSITIONS = []
@@ -72,7 +74,7 @@ func _process(delta: float) -> void:
 
 
 func _input(event : InputEvent) -> void:
-	if game_over == false:
+	if game_over == false and options.visible == false:
 		var m_pos: Vector2 = get_global_mouse_position()
 		if get_used_rect().has_point(m_pos/32):
 			var clicked = get_used_cells().find(Vector2(m_pos.x/32,m_pos.y/32))

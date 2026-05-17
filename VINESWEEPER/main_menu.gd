@@ -14,7 +14,6 @@ extends Control
 func _ready() -> void:
 	GLOBAL.difficulty_board_size = GLOBAL.difficulty_board_size_basis
 	GLOBAL.max_bombs = GLOBAL.max_bombs_basis
-	GLOBAL.current_level = 1
 	
 	options.visible = false
 	v_box_container.visible = true
@@ -32,13 +31,14 @@ func _process(_delta: float) -> void:
 func _continue_button_pressed() -> void:
 	#print(GLOBAL.board_revealed)
 	print(GLOBAL.board_revealed)
-	if GLOBAL.board_revealed == true:
+	if GLOBAL.board_revealed == true or GLOBAL.current_level > 1:
 		get_tree().change_scene_to_file("res://Level_tree.tscn")
 	else:
 		pass
 
 
 func _newgame_button_pressed() -> void:
+	GLOBAL.current_level = 1
 	GLOBAL.board_revealed = false
 	get_tree().change_scene_to_file("res://Level_tree.tscn")
 
