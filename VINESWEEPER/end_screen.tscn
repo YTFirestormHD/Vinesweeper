@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cst3koy0hdjtd"]
+
+[ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="1_abjgy"]
+[ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="2_xu7hh"]
+[ext_resource type="Script" uid="uid://c26sa2s5qr8hg" path="res://final_coins.gd" id="3_xu7hh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmjk2"]
+texture = ExtResource("1_abjgy")
+modulate_color = Color(0.5796506, 0.5796506, 0.5796506, 1)
+
+[node name="Control" type="Control" unique_id=268024323]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1908582284]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pmjk2")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=842932012]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=889206354]
+layout_mode = 2
+
+[node name="tfp" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=457429081]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20392157, 1, 0.4627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "THANKS FOR PLAYING"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/CenterContainer/VBoxContainer" unique_id=126225639]
+layout_mode = 2
+texture = ExtResource("2_xu7hh")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=1198323022]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20392157, 1, 0.4627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 12
+text = "A GAME BY
+Franz B. Matthias K. Moritz G."
+horizontal_alignment = 1
+
+[node name="final_coins" type="Label" parent="Panel/CenterContainer/VBoxContainer" unique_id=1107898668]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.20392157, 1, 0.4627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 12
+script = ExtResource("3_xu7hh")
