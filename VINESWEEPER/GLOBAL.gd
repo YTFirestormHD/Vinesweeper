@@ -17,6 +17,8 @@ var REVEALED_safe = []
 var time_passed
 var time_seconds
 var time_minutes
+var coins = 0
+var new_coins
 
 
 func _ready() -> void:
