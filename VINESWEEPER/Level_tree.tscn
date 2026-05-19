@@ -2,17 +2,11 @@
 
 [ext_resource type="Script" uid="uid://kcgx2dqjv2li" path="res://level_tree.gd" id="1_acmle"]
 [ext_resource type="Texture2D" uid="uid://cy24srvve040v" path="res://assets/Level-Tree/tree_stump_pixels_by_fredmalm_dc7rg9h-fullview.png" id="1_iueuf"]
-[ext_resource type="Texture2D" uid="uid://b5kkhi4v6rd7v" path="res://assets/Level-Tree/Number 1.png" id="2_hp7to"]
 [ext_resource type="Texture2D" uid="uid://bu6wuodyyjt31" path="res://assets/Level-Tree/map_empty.png" id="2_htig3"]
 [ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_pu6sp"]
-[ext_resource type="Texture2D" uid="uid://d02onc7sb3ce4" path="res://assets/Level-Tree/Number 1 pressed.png" id="5_brksf"]
+[ext_resource type="Texture2D" uid="uid://c3i5qokikfxew" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure_uncovered.png" id="5_7rs0m"]
 [ext_resource type="Texture2D" uid="uid://2kycc6nwd4ec" path="res://assets/Level-Tree/Connecting Vine.png" id="6_2oiu0"]
-[ext_resource type="Texture2D" uid="uid://bwbokflaawwgb" path="res://assets/Level-Tree/Number 3.png" id="6_gv1g5"]
-[ext_resource type="Texture2D" uid="uid://otaddjvsv5s0" path="res://assets/Level-Tree/Number 3 pressed.png" id="7_y3mx6"]
-[ext_resource type="Texture2D" uid="uid://p2tc2ql1ms5k" path="res://assets/Level-Tree/Number 4.png" id="8_2oiu0"]
-[ext_resource type="Texture2D" uid="uid://3i1j4liocmmt" path="res://assets/Level-Tree/Number 2.png" id="9_htig3"]
-[ext_resource type="Texture2D" uid="uid://dp8cpi0em6n2n" path="res://assets/Level-Tree/Number 4 pressed.png" id="9_y3mx6"]
-[ext_resource type="Texture2D" uid="uid://b3l53ydmrb3xq" path="res://assets/Level-Tree/Number 2 pressed.png" id="10_pu6sp"]
+[ext_resource type="Texture2D" uid="uid://hruoxsqs30kq" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure.png" id="6_lfhid"]
 
 [node name="Control" type="Control" unique_id=129341323]
 layout_mode = 3
@@ -64,14 +58,13 @@ texture = ExtResource("1_iueuf")
 
 [node name="Level4" type="TextureButton" parent="Stumps (temp)/Stump4" unique_id=288557481]
 layout_mode = 0
-offset_left = 48.0
-offset_top = -88.0
-offset_right = 182.0
-offset_bottom = 73.0
-texture_normal = ExtResource("8_2oiu0")
-texture_pressed = ExtResource("9_y3mx6")
-texture_hover = ExtResource("9_y3mx6")
-stretch_mode = 0
+offset_left = -6.0
+offset_top = -89.0
+offset_right = 128.0
+offset_bottom = 39.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_7rs0m")
+texture_disabled = ExtResource("6_lfhid")
 
 [node name="Stump3" type="TextureRect" parent="Stumps (temp)" unique_id=1512598171]
 layout_mode = 1
@@ -87,15 +80,14 @@ texture = ExtResource("1_iueuf")
 
 [node name="Level3" type="TextureButton" parent="Stumps (temp)/Stump3" unique_id=335028645]
 layout_mode = 0
-offset_left = 64.0
-offset_top = -72.0
-offset_right = 193.0
-offset_bottom = 92.0
+offset_left = -5.0
+offset_top = -92.0
+offset_right = 124.0
+offset_bottom = 36.0
+scale = Vector2(2, 2)
 disabled = true
-texture_normal = ExtResource("6_gv1g5")
-texture_pressed = ExtResource("7_y3mx6")
-texture_hover = ExtResource("7_y3mx6")
-stretch_mode = 0
+texture_normal = ExtResource("5_7rs0m")
+texture_disabled = ExtResource("6_lfhid")
 
 [node name="Connecting Vine" type="TextureRect" parent="Stumps (temp)/Stump3" unique_id=17439265]
 z_index = 1
@@ -121,16 +113,15 @@ mouse_filter = 2
 texture = ExtResource("1_iueuf")
 
 [node name="Level1" type="TextureButton" parent="Stumps (temp)/Stump" unique_id=2126159680]
-layout_mode = 0
-offset_left = 67.0
-offset_top = -65.0
-offset_right = 176.0
-offset_bottom = 72.0
+layout_mode = 1
+offset_left = -6.0
+offset_top = -92.0
+offset_right = 122.0
+offset_bottom = 36.0
+scale = Vector2(2, 2)
 disabled = true
-texture_normal = ExtResource("2_hp7to")
-texture_pressed = ExtResource("5_brksf")
-texture_hover = ExtResource("5_brksf")
-stretch_mode = 0
+texture_normal = ExtResource("5_7rs0m")
+texture_disabled = ExtResource("6_lfhid")
 
 [node name="Connecting Vine" type="TextureRect" parent="Stumps (temp)/Stump" unique_id=1338902075]
 z_index = 4
@@ -160,15 +151,14 @@ texture = ExtResource("1_iueuf")
 
 [node name="Level2" type="TextureButton" parent="Stumps (temp)/Stump2" unique_id=1036617700]
 layout_mode = 0
-offset_left = 48.0
-offset_top = -96.0
-offset_right = 199.0
-offset_bottom = 81.0
+offset_left = -9.0
+offset_top = -92.0
+offset_right = 119.0
+offset_bottom = 36.0
+scale = Vector2(2, 2)
 disabled = true
-texture_normal = ExtResource("9_htig3")
-texture_pressed = ExtResource("10_pu6sp")
-texture_hover = ExtResource("10_pu6sp")
-stretch_mode = 0
+texture_normal = ExtResource("5_7rs0m")
+texture_disabled = ExtResource("6_lfhid")
 
 [node name="Connecting Vine" type="TextureRect" parent="Stumps (temp)/Stump2" unique_id=2101027693]
 z_index = 1
