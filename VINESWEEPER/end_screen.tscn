@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cst3koy0hdjtd"]
 
 [ext_resource type="Texture2D" uid="uid://bn7nhcs1q0wg6" path="res://assets/bg_images/jungle-landscape-pixel-art-style.png" id="1_abjgy"]
+[ext_resource type="Script" uid="uid://cs687v1jdwo7h" path="res://end_screen.gd" id="1_pmjk2"]
 [ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="2_xu7hh"]
-[ext_resource type="Script" uid="uid://c26sa2s5qr8hg" path="res://final_coins.gd" id="3_xu7hh"]
+[ext_resource type="Script" path="res://final_coins.gd" id="3_xu7hh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pmjk2"]
 texture = ExtResource("1_abjgy")
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pmjk2")
 
 [node name="Panel" type="Panel" parent="." unique_id=1908582284]
 layout_mode = 1
@@ -71,3 +73,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 12
 script = ExtResource("3_xu7hh")
+
+[node name="Timer" type="Timer" parent="." unique_id=1908869590]
+wait_time = 15.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
