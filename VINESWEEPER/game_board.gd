@@ -5,7 +5,7 @@ extends Node2D
 @onready var lose: VBoxContainer = $Background/Result/MarginContainer/Lose
 @onready var win: VBoxContainer = $Background/Result/MarginContainer/Win
 @onready var timer: Label = $Timer
-
+@onready var level_display_during_game: Label = $Level_display_during_game
 
 var delta = 1/60
 
@@ -67,6 +67,7 @@ func load_background():
 
 func load_timer():
 	timer.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
+
 
 
 func result(result_win):
