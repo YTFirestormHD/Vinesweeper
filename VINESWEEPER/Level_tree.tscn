@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kcgx2dqjv2li" path="res://level_tree.gd" id="1_acmle"]
 [ext_resource type="Texture2D" uid="uid://cy24srvve040v" path="res://assets/Level-Tree/tree_stump_pixels_by_fredmalm_dc7rg9h-fullview.png" id="1_iueuf"]
-[ext_resource type="Texture2D" uid="uid://bu6wuodyyjt31" path="res://assets/Level-Tree/map_empty.png" id="2_htig3"]
+[ext_resource type="Texture2D" uid="uid://br04d2utu2lkc" path="res://assets/Level-Tree/LevelTree_map_V1_Unfinished.png" id="2_7rs0m"]
 [ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_pu6sp"]
 [ext_resource type="Texture2D" uid="uid://c3i5qokikfxew" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure_uncovered.png" id="5_7rs0m"]
 [ext_resource type="Texture2D" uid="uid://2kycc6nwd4ec" path="res://assets/Level-Tree/Connecting Vine.png" id="6_2oiu0"]
@@ -18,11 +18,15 @@ grow_vertical = 2
 script = ExtResource("1_acmle")
 
 [node name="Map" type="TextureRect" parent="." unique_id=328355635]
-layout_mode = 0
-offset_top = -24.0
-offset_right = 1152.0
-offset_bottom = 1302.0
-texture = ExtResource("2_htig3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 3192.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7rs0m")
+expand_mode = 5
 
 [node name="coin_display" type="Label" parent="Map" unique_id=1926137159]
 layout_mode = 1
