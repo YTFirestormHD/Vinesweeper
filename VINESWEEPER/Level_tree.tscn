@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cy24srvve040v" path="res://assets/Level-Tree/tree_stump_pixels_by_fredmalm_dc7rg9h-fullview.png" id="1_iueuf"]
 [ext_resource type="Texture2D" uid="uid://br04d2utu2lkc" path="res://assets/Level-Tree/LevelTree_map_V1_Unfinished.png" id="2_7rs0m"]
 [ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_pu6sp"]
-[ext_resource type="Script" uid="uid://clrp88noqtby4" path="res://level_display_during_game.gd" id="4_lfhid"]
 [ext_resource type="Texture2D" uid="uid://c3i5qokikfxew" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure_uncovered.png" id="5_7rs0m"]
 [ext_resource type="Texture2D" uid="uid://2kycc6nwd4ec" path="res://assets/Level-Tree/Connecting Vine.png" id="6_2oiu0"]
 [ext_resource type="Texture2D" uid="uid://hruoxsqs30kq" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure.png" id="6_lfhid"]
@@ -42,12 +41,6 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "test"
 script = ExtResource("2_pu6sp")
-
-[node name="level_display_during_game" type="Label" parent="Map" unique_id=748717515]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 16.0
-script = ExtResource("4_lfhid")
 
 [node name="Stumps (temp)" type="Control" parent="." unique_id=886622178]
 anchors_preset = 0
