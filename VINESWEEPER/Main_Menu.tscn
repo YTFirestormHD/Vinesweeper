@@ -2,7 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://label_2.gd" id="5_3mro0"]
+=======
+[ext_resource type="Script" uid="uid://bp66ecs7pxj2o" path="res://test_map.gd" id="4_tu7k8"]
+[ext_resource type="Script" uid="uid://ceiltsrr7gn24" path="res://label_2.gd" id="5_3mro0"]
+>>>>>>> Stashed changes
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
 [ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="7_5cvai"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
@@ -71,6 +76,11 @@ size_flags_stretch_ratio = 0.45
 texture = ExtResource("7_5cvai")
 stretch_mode = 4
 
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=213627760]
+layout_mode = 2
+text = "test_map"
+script = ExtResource("4_tu7k8")
+
 [node name="Menu_Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=251956791]
 layout_mode = 2
 size_flags_vertical = 3
@@ -118,6 +128,7 @@ theme_override_font_sizes/font_size = 16
 text = "VERSION 0.1.0"
 
 [node name="Options" type="Panel" parent="." unique_id=83902499]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -203,6 +214,7 @@ theme_override_colors/font_outline_color = Color(0.87584656, 0.24290001, 0, 1)
 theme_override_constants/h_separation = 4
 text = "Fullscreen"
 
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="." method="_continue_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/newgame" to="." method="_newgame_button_pressed"]
