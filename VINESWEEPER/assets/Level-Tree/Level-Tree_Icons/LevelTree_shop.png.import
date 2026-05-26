@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br04d2utu2lkc"
-path="res://.godot/imported/LevelTree_map_V1_Unfinished.png-fc5742b169fcde30e6ff45bd6b9de02e.ctex"
+uid="uid://ckpuy6t5goeyd"
+path="res://.godot/imported/LevelTree_shop.png-8c5b6af7342eacf4553f4ca1d459ac6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Level-Tree/LevelTree_map_V1_Unfinished.png"
-dest_files=["res://.godot/imported/LevelTree_map_V1_Unfinished.png-fc5742b169fcde30e6ff45bd6b9de02e.ctex"]
+source_file="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_shop.png"
+dest_files=["res://.godot/imported/LevelTree_shop.png-8c5b6af7342eacf4553f4ca1d459ac6c.ctex"]
 
 [params]
 
