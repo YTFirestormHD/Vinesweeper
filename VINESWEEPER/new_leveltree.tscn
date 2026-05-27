@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://new_leveltree.gd" id="1_xn04q"]
 [ext_resource type="Texture2D" uid="uid://ch7omgqvler5v" path="res://assets/Level-Tree/LevelTree_map_V1.png" id="2_xc0cg"]
 [ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_xn04q"]
+[ext_resource type="Texture2D" uid="uid://60uspvrlo5ow" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_undiscovered_Light.png" id="3_achp2"]
 [ext_resource type="Script" uid="uid://clrp88noqtby4" path="res://level_display_during_game.gd" id="4_8a0b0"]
 [ext_resource type="Texture2D" uid="uid://ckpuy6t5goeyd" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_shop.png" id="4_achp2"]
 [ext_resource type="Script" uid="uid://1w0fc3rokord" path="res://map_tml.gd" id="4_xc0cg"]
-[ext_resource type="Texture2D" uid="uid://cl5o3g3i00ksr" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_undiscovered.png" id="5_8a0b0"]
 [ext_resource type="Texture2D" uid="uid://hruoxsqs30kq" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure.png" id="5_ja8q8"]
 [ext_resource type="Texture2D" uid="uid://bcmiwsr5npt57" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_boss.png" id="6_achp2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ja8q8"]
-texture = ExtResource("5_8a0b0")
+texture = ExtResource("3_achp2")
 margins = Vector2i(32, 30)
 texture_region_size = Vector2i(68, 68)
 0:0/0 = 0
@@ -36,10 +36,10 @@ texture_region_size = Vector2i(68, 68)
 
 [sub_resource type="TileSet" id="TileSet_achp2"]
 tile_size = Vector2i(68, 68)
-sources/1 = SubResource("TileSetAtlasSource_ja8q8")
 sources/4 = SubResource("TileSetAtlasSource_k8fc6")
 sources/2 = SubResource("TileSetAtlasSource_ioi05")
 sources/3 = SubResource("TileSetAtlasSource_27s01")
+sources/1 = SubResource("TileSetAtlasSource_ja8q8")
 
 [node name="Control" type="Control" unique_id=1603397835]
 layout_mode = 3

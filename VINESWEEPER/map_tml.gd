@@ -69,6 +69,7 @@ func _ready() -> void:
 		GLOBAL.map_done = true
 		safe()
 	cam.global_position.y = map_to_local(all_rows[current_level][0]).y
+	set_types()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,9 +89,10 @@ func _input(event: InputEvent) -> void:
 		
 		if current_path == []:
 			choose_path(clicked)
+			#print(current_path)
 			
 		if all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y and current_path.has(clicked):
-			print(clicked)
+			#print(clicked)
 			safe()
 			enter_level()
 
@@ -105,8 +107,8 @@ func make_path(start,row,path):
 	#if not PATHS[path].has(start):
 	PATHS[path].append(start)
 	PATHS[path].sort_custom(array_sort)
-	if path > 1 and path < len(all_rows):
-		generate_type(start)
+	if start not in path_nodes:
+		generate_type(start,row)
 	if row < len(all_rows)-1:
 		has_connection.append(start)
 		point_a = map_to_local(start)
@@ -192,18 +194,29 @@ func load_map():
 	has_connection = GLOBAL.leveltree[4]
 	PATHS = GLOBAL.leveltree[5]
 	current_path = GLOBAL.leveltree[6]
+	print(current_path)
 	current_level = GLOBAL.current_level-1
 	path_nodes = GLOBAL.leveltree[7]
 
 
-func generate_type(node):
+func generate_type(node,row):
 	var roll = randi_range(1,100)
-	if roll > 10:
+	if row <= 1:
+		path_nodes[node] = 3
+	elif row == len(all_rows)-1:
+		path_nodes[node] = 4
+	elif roll < 10:
 		path_nodes[node] = 1
 		#Random Event
-	elif roll > 30:
+	elif roll < 30:
 		path_nodes[node] = 2
 		#Shop
 	else:
 		path_nodes[node] = 3
 		#Normal Encounter
+
+
+func set_types():
+	for i in path_nodes:
+		print(i, path_nodes[i])
+		set_cell(i,path_nodes[i],Vector2(0,0))
