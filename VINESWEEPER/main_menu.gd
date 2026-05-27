@@ -32,7 +32,7 @@ func _continue_button_pressed() -> void:
 	#print(GLOBAL.board_revealed)
 	print(GLOBAL.board_revealed)
 	if GLOBAL.board_revealed == true or GLOBAL.current_level > 1:
-		get_tree().change_scene_to_file("res://Level_tree.tscn")
+		get_tree().change_scene_to_file("res://new_leveltree.tscn")
 	else:
 		pass
 
@@ -40,7 +40,7 @@ func _continue_button_pressed() -> void:
 func _newgame_button_pressed() -> void:
 	GLOBAL.current_level = 1
 	GLOBAL.board_revealed = false
-	get_tree().change_scene_to_file("res://Level_tree.tscn")
+	get_tree().change_scene_to_file("res://new_leveltree.tscn")
 
 
 func _options_button_pressed() -> void:

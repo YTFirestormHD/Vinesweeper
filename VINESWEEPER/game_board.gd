@@ -6,14 +6,14 @@ extends Node2D
 @onready var win: VBoxContainer = $Background/Result/MarginContainer/Win
 @onready var timer: Label = $Timer
 @onready var level_display_during_game: Label = $Level_display_during_game
-
+@onready var level: Label = $Level
 var delta = 1/60
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_background()
-	load_timer()
+	load_displays()
 	options.visible = false
 	win.visible = false
 	lose.visible = false
@@ -52,10 +52,10 @@ func back_to_title() -> void:
 
 func back_to_levels():
 	GLOBAL.current_level += 1
-	if GLOBAL.current_level == 5:
+	if GLOBAL.end_of_game:
 		get_tree().change_scene_to_file("res://end_screen.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Level_tree.tscn")
+		get_tree().change_scene_to_file("res://new_leveltree.tscn")
 
 
 func load_background():
@@ -65,8 +65,9 @@ func load_background():
 	background.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
 
 
-func load_timer():
+func load_displays():
 	timer.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
+	level.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)+20))
 
 
 

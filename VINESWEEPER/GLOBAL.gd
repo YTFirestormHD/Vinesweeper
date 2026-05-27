@@ -19,6 +19,10 @@ var time_seconds
 var time_minutes
 var coins = 0
 var new_coins
+var end_of_game
+var current_path = []
+var leveltree
+var map_done = false
 
 
 func _ready() -> void:

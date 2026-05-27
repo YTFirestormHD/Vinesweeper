@@ -1,16 +1,11 @@
 [gd_scene format=3 uid="uid://fu5alj74u2wm"]
 
-[ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_5cvai"]
-[ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="1_dnfjo"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" path="res://label_2.gd" id="5_3mro0"]
-=======
-[ext_resource type="Script" uid="uid://bp66ecs7pxj2o" path="res://test_map.gd" id="4_tu7k8"]
-[ext_resource type="Script" uid="uid://ceiltsrr7gn24" path="res://label_2.gd" id="5_3mro0"]
->>>>>>> Stashed changes
-[ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_domf7"]
-[ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="7_5cvai"]
-[ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_tu7k8"]
+[ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_tu7k8"]
+[ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="2_5cvai"]
+[ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="3_domf7"]
+[ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_t301m"]
+[ext_resource type="Script" uid="uid://ceiltsrr7gn24" path="res://label_2.gd" id="6_wrfco"]
+[ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_teegn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_257up"]
 load_path = "res://.godot/imported/jungle-landscape-pixel-art-style.png-d25eed948f0c6e0b84bb2aab2d125bc1.ctex"
@@ -36,8 +31,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-theme = ExtResource("1_5cvai")
-script = ExtResource("1_dnfjo")
+theme = ExtResource("1_tu7k8")
+script = ExtResource("2_5cvai")
 
 [node name="Background" type="Panel" parent="." unique_id=1640718868]
 layout_mode = 1
@@ -73,13 +68,8 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
-texture = ExtResource("7_5cvai")
+texture = ExtResource("3_domf7")
 stretch_mode = 4
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=213627760]
-layout_mode = 2
-text = "test_map"
-script = ExtResource("4_tu7k8")
 
 [node name="Menu_Options" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=251956791]
 layout_mode = 2
@@ -123,12 +113,11 @@ alignment = 0
 
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1530458320]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_domf7")
+theme_override_fonts/font = ExtResource("5_t301m")
 theme_override_font_sizes/font_size = 16
 text = "VERSION 0.1.0"
 
 [node name="Options" type="Panel" parent="." unique_id=83902499]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -179,7 +168,7 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
-script = ExtResource("5_3mro0")
+script = ExtResource("6_wrfco")
 
 [node name="Board_Size_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=125832632]
 custom_minimum_size = Vector2(400, 16)
@@ -194,7 +183,7 @@ value = 4.0
 [node name="Label3" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=202353592]
 layout_mode = 2
 size_flags_horizontal = 0
-script = ExtResource("7_tu7k8")
+script = ExtResource("7_teegn")
 
 [node name="Max_Bombs_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1860344930]
 custom_minimum_size = Vector2(400, 16)
@@ -214,7 +203,6 @@ theme_override_colors/font_outline_color = Color(0.87584656, 0.24290001, 0, 1)
 theme_override_constants/h_separation = 4
 text = "Fullscreen"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="MarginContainer/HBoxContainer/VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="." method="_continue_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" to="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/newgame" to="." method="_newgame_button_pressed"]
