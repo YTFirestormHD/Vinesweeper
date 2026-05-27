@@ -18,6 +18,7 @@ var current_level
 var path = -1
 var PATHS = []
 var current_path = []
+var path_nodes = {}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -59,14 +60,15 @@ func _ready() -> void:
 			path += 1
 			make_path(i,0,path)
 			
-		for i in all_cells:
-			if not has_connection.has(i) and i != all_cells.back():
-				print(i)
-				new_map.erase_cell(i)
+	for i in all_cells:
+		if not has_connection.has(i) and i != all_cells.back():
+			#print(i)
+			new_map.erase_cell(i)
 				
 		cam.global_position.y = map_to_local(all_rows[current_level][0]).y
 		GLOBAL.map_done = true
 		safe()
+	cam.global_position.y = map_to_local(all_rows[current_level][0]).y
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -77,6 +79,7 @@ func _process(delta: float) -> void:
 func _draw():
 	for connection in connections:
 		draw_line(connection[0], connection[1], Color.RED, 3)
+
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("action")):
@@ -99,9 +102,11 @@ func array_sort(a: Vector2i,b: Vector2i):
 
 
 func make_path(start,row,path):
-	if not PATHS[path].has(start):
-		PATHS[path].append(start)
+	#if not PATHS[path].has(start):
+	PATHS[path].append(start)
 	PATHS[path].sort_custom(array_sort)
+	if path > 1 and path < len(all_rows):
+		generate_type(start)
 	if row < len(all_rows)-1:
 		has_connection.append(start)
 		point_a = map_to_local(start)
@@ -123,7 +128,6 @@ func make_path(start,row,path):
 		point_b = map_to_local(next)
 		#print(next)
 		connections.append([point_a,point_b])
-
 
 
 func pick_closest(pos, row):
@@ -177,7 +181,7 @@ func enter_level():
 
 
 func safe():
-	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path]
+	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes]
 
 
 func load_map():
@@ -189,3 +193,17 @@ func load_map():
 	PATHS = GLOBAL.leveltree[5]
 	current_path = GLOBAL.leveltree[6]
 	current_level = GLOBAL.current_level-1
+	path_nodes = GLOBAL.leveltree[7]
+
+
+func generate_type(node):
+	var roll = randi_range(1,100)
+	if roll > 10:
+		path_nodes[node] = 1
+		#Random Event
+	elif roll > 30:
+		path_nodes[node] = 2
+		#Shop
+	else:
+		path_nodes[node] = 3
+		#Normal Encounter

@@ -1,15 +1,29 @@
 [gd_scene format=4 uid="uid://dh27r64bqnr35"]
 
-[ext_resource type="Script" uid="uid://7ysajejvg5dg" path="res://new_leveltree.gd" id="1_xn04q"]
+[ext_resource type="Script" path="res://new_leveltree.gd" id="1_xn04q"]
 [ext_resource type="Texture2D" uid="uid://ch7omgqvler5v" path="res://assets/Level-Tree/LevelTree_map_V1.png" id="2_xc0cg"]
 [ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_xn04q"]
 [ext_resource type="Script" uid="uid://clrp88noqtby4" path="res://level_display_during_game.gd" id="4_8a0b0"]
+[ext_resource type="Texture2D" uid="uid://ckpuy6t5goeyd" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_shop.png" id="4_achp2"]
 [ext_resource type="Script" uid="uid://1w0fc3rokord" path="res://map_tml.gd" id="4_xc0cg"]
 [ext_resource type="Texture2D" uid="uid://cl5o3g3i00ksr" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_undiscovered.png" id="5_8a0b0"]
+[ext_resource type="Texture2D" uid="uid://hruoxsqs30kq" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure.png" id="5_ja8q8"]
 [ext_resource type="Texture2D" uid="uid://bcmiwsr5npt57" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_boss.png" id="6_achp2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ja8q8"]
 texture = ExtResource("5_8a0b0")
+margins = Vector2i(32, 30)
+texture_region_size = Vector2i(68, 68)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ioi05"]
+texture = ExtResource("4_achp2")
+margins = Vector2i(32, 30)
+texture_region_size = Vector2i(68, 68)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27s01"]
+texture = ExtResource("5_ja8q8")
 margins = Vector2i(32, 30)
 texture_region_size = Vector2i(68, 68)
 0:0/0 = 0
@@ -22,8 +36,10 @@ texture_region_size = Vector2i(68, 68)
 
 [sub_resource type="TileSet" id="TileSet_achp2"]
 tile_size = Vector2i(68, 68)
-sources/2 = SubResource("TileSetAtlasSource_k8fc6")
 sources/1 = SubResource("TileSetAtlasSource_ja8q8")
+sources/4 = SubResource("TileSetAtlasSource_k8fc6")
+sources/2 = SubResource("TileSetAtlasSource_ioi05")
+sources/3 = SubResource("TileSetAtlasSource_27s01")
 
 [node name="Control" type="Control" unique_id=1603397835]
 layout_mode = 3
@@ -45,30 +61,8 @@ grow_vertical = 2
 texture = ExtResource("2_xc0cg")
 expand_mode = 5
 
-[node name="coin_display" type="Label" parent="." unique_id=739277415]
-layout_mode = 1
-offset_left = 952.0
-offset_top = 80.0
-offset_right = 1032.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Coins"
-horizontal_alignment = 1
-script = ExtResource("2_xn04q")
-
-[node name="current_level" type="Label" parent="." unique_id=87084699]
-layout_mode = 1
-offset_left = 952.0
-offset_top = 104.0
-offset_right = 1032.0
-offset_bottom = 123.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "level"
-horizontal_alignment = 1
-script = ExtResource("4_8a0b0")
-
 [node name="new_map" type="TileMapLayer" parent="." unique_id=1543704856]
-tile_map_data = PackedByteArray("AAADAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAJAAMAAQAAAAAAAAAMAAMAAQAAAAAAAAAFAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAAIAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAALAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAFAA0AAQAAAAAAAAAMAA0AAQAAAAAAAAADABcAAQAAAAAAAAAMABcAAQAAAAAAAAAFABoAAQAAAAAAAAAKABoAAQAAAAAAAAACAB0AAQAAAAAAAAALAB0AAQAAAAAAAAAIACAAAQAAAAAAAAAIACQAAgAAAAAAAAAGABQAAQAAAAAAAAAJABQAAQAAAAAAAAANABQAAQAAAAAAAAALABEAAQAAAAAAAAAOABEAAQAAAAAAAAAFABEAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAJAAMAAQAAAAAAAAAMAAMAAQAAAAAAAAAFAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAAIAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAALAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAFAA0AAQAAAAAAAAAMAA0AAQAAAAAAAAADABcAAQAAAAAAAAAMABcAAQAAAAAAAAAFABoAAQAAAAAAAAAKABoAAQAAAAAAAAACAB0AAQAAAAAAAAALAB0AAQAAAAAAAAAIACAAAQAAAAAAAAAGABQAAQAAAAAAAAAJABQAAQAAAAAAAAANABQAAQAAAAAAAAALABEAAQAAAAAAAAAOABEAAQAAAAAAAAAFABEAAQAAAAAAAAAIACQAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_achp2")
 rendering_quadrant_size = 68
 physics_quadrant_size = 68
@@ -76,3 +70,27 @@ script = ExtResource("4_xc0cg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=901034003]
 position = Vector2(576, 328)
+
+[node name="coin_display" type="Label" parent="Camera2D" unique_id=739277415]
+offset_left = 376.0
+offset_top = -248.0
+offset_right = 456.0
+offset_bottom = -232.0
+theme_override_colors/font_color = Color(0.7223681, 0.48920876, 0.00470584, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "Coins"
+horizontal_alignment = 1
+script = ExtResource("2_xn04q")
+
+[node name="current_level" type="Label" parent="Camera2D" unique_id=87084699]
+offset_left = 376.0
+offset_top = -224.0
+offset_right = 456.0
+offset_bottom = -205.0
+theme_override_colors/font_color = Color(0.72156864, 0.49019608, 0.003921569, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "level"
+horizontal_alignment = 1
+script = ExtResource("4_8a0b0")
