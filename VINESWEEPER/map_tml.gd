@@ -21,7 +21,11 @@ var current_path = []
 var path_nodes = {}
 var previous_nodes = {}
 var previous_node = 0
+<<<<<<< Updated upstream
 var finished = []
+=======
+var crossings = {}
+>>>>>>> Stashed changes
 
 
 # Called when the node enters the scene tree for the first time.
@@ -95,7 +99,8 @@ func _input(event: InputEvent) -> void:
 			#print(previous_nodes[current_path[current_level]])
 			#print("Previous: "+str(previous_node))
 			#print("Previous_2: "+str(previous_nodes[clicked]))
-			#print(previous_nodes)
+			#print(clicked)
+			#print(previous_node)
 			if all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y and check_previous(clicked):
 				#print(previous_nodes)
 				previous_node = clicked
@@ -132,22 +137,24 @@ func make_path(start,row,path):
 		connections.append([point_a,point_b])
 		if may_next != Vector2i(0,0):
 			connections.append([point_a,map_to_local(may_next)])
-			previous_nodes[may_next] = start
+			previous_nodes[start] = [next, may_next]
+			crossings[start] = [next, may_next]
+			print(str(start) + " : "+ str(previous_nodes[start]))
 			make_path(may_next,row,path)
-		previous_nodes[next] = start
-		make_path(next,row,path)
-		if may_next != Vector2i(0,0):
-			print(str(may_next)+ " : " + str(previous_nodes[may_next]))
-			print(str(next)+ " : " + str(previous_nodes[next]))
+			make_path(next,row,path)
+		else:
+			previous_nodes[start] = [next]
+			make_path(next,row,path)
 	else:
 		point_a = map_to_local(start)
 		#print(point_a)
 		var next = (all_rows[row]).pick_random()
 		point_b = map_to_local(next)
 		#print(next)
-		previous_nodes[next] = start
+		previous_nodes[start] = [next]
 		connections.append([point_a,point_b])
 		#print(previous_nodes)
+	previous_nodes.keys().sort()
 
 
 func pick_closest(pos, row):
@@ -202,7 +209,11 @@ func enter_level(clicked):
 
 
 func safe():
+<<<<<<< Updated upstream
 	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes,finished]
+=======
+	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes,crossings]
+>>>>>>> Stashed changes
 
 
 func load_map():
@@ -213,12 +224,15 @@ func load_map():
 	has_connection = GLOBAL.leveltree[4]
 	PATHS = GLOBAL.leveltree[5]
 	current_path = GLOBAL.leveltree[6]
-	#print(current_path)
 	current_level = GLOBAL.current_level-1
 	path_nodes = GLOBAL.leveltree[7]
 	previous_node = GLOBAL.leveltree[8]
 	previous_nodes = GLOBAL.leveltree[9]
+<<<<<<< Updated upstream
 	finished = GLOBAL.leveltree[10]
+=======
+	crossings = GLOBAL.leveltree[10]
+>>>>>>> Stashed changes
 
 
 func generate_type(node,row):
@@ -252,12 +266,16 @@ func set_types():
 
 
 func check_previous(clicked):
-	if current_path.has(clicked):
-		print("///")
-		print(str(previous_node) + "==" + str(previous_nodes[clicked]))
-		if previous_nodes[clicked] == previous_node:
-			#print(str(previous_node)+ " : " + str(previous_nodes[clicked]))
-			#print(str(previous_node)+ " : " + str(previous_nodes[clicked]))
+	print("///")
+	print("Clicked: "+str(clicked))
+	print("Previous: "+str(previous_node))
+	print("Dict: "+str(previous_nodes[previous_node]))
+	if previous_nodes[previous_node].has(clicked):
+		return true
+	elif previous_node in crossings:
+		if crossings[previous_node].has(clicked):
 			return true
 	else:
+		print(previous_nodes)
+		print(crossings)
 		return false
