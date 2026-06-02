@@ -21,6 +21,7 @@ var current_path = []
 var path_nodes = {}
 var previous_nodes = {}
 var previous_node = 0
+var finished = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -100,12 +101,12 @@ func _input(event: InputEvent) -> void:
 				previous_node = clicked
 				#print(previous_node)
 				safe()
-				enter_level()
+				enter_level(clicked)
 		elif all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y:
 			previous_node = clicked
 			#print(previous_node)
 			safe()
-			enter_level()
+			enter_level(clicked)
 
 
 func array_sort(a: Vector2i,b: Vector2i):
@@ -186,7 +187,8 @@ func choose_path(from):
 			GLOBAL.current_path = i
 
 
-func enter_level():
+func enter_level(clicked):
+	finished.append(clicked)
 	GLOBAL.difficulty_board_size += (GLOBAL.current_level - 1) * 1.2
 	if GLOBAL.difficulty_board_size > 18:
 		GLOBAL.difficulty_board_size = 18
@@ -200,7 +202,7 @@ func enter_level():
 
 
 func safe():
-	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes]
+	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes,finished]
 
 
 func load_map():
@@ -216,6 +218,7 @@ func load_map():
 	path_nodes = GLOBAL.leveltree[7]
 	previous_node = GLOBAL.leveltree[8]
 	previous_nodes = GLOBAL.leveltree[9]
+	finished = GLOBAL.leveltree[10]
 
 
 func generate_type(node,row):
@@ -240,7 +243,12 @@ func generate_type(node,row):
 func set_types():
 	for i in path_nodes:
 		#print(i, path_nodes[i])
-		set_cell(i,path_nodes[i],Vector2(0,0))
+		if i in current_path or current_path == []:
+			set_cell(i,path_nodes[i],Vector2(0,0))
+		else:
+			set_cell(i,path_nodes[i]+10,Vector2(0,0))
+	for i in finished:
+		set_cell(i,path_nodes[i]+10,Vector2(0,0))
 
 
 func check_previous(clicked):
