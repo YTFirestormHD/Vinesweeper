@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://kcgx2dqjv2li" path="res://level_tree.gd" id="1_acmle"]
 [ext_resource type="Texture2D" uid="uid://cy24srvve040v" path="res://assets/Level-Tree/tree_stump_pixels_by_fredmalm_dc7rg9h-fullview.png" id="1_iueuf"]
 [ext_resource type="Texture2D" uid="uid://ch7omgqvler5v" path="res://assets/Level-Tree/LevelTree_map_V1.png" id="2_7rs0m"]
-[ext_resource type="Script" uid="uid://c7020l0a0ptdw" path="res://coin_display.gd" id="2_pu6sp"]
+[ext_resource type="Script" path="res://coin_display.gd" id="2_pu6sp"]
 [ext_resource type="Script" uid="uid://clrp88noqtby4" path="res://level_display_during_game.gd" id="4_lfhid"]
 [ext_resource type="Texture2D" uid="uid://c3i5qokikfxew" path="res://assets/Level-Tree/Level-Tree_Icons/LevelTree_styled_adventure_uncovered.png" id="5_7rs0m"]
 [ext_resource type="Texture2D" uid="uid://2kycc6nwd4ec" path="res://assets/Level-Tree/Connecting Vine.png" id="6_2oiu0"]
