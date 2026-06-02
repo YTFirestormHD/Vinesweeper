@@ -19,6 +19,8 @@ var path = -1
 var PATHS = []
 var current_path = []
 var path_nodes = {}
+var previous_nodes = {}
+var previous_node = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -64,12 +66,10 @@ func _ready() -> void:
 		if not has_connection.has(i) and i != all_cells.back():
 			#print(i)
 			new_map.erase_cell(i)
-				
-		cam.global_position.y = map_to_local(all_rows[current_level][0]).y
 		GLOBAL.map_done = true
-		safe()
 	cam.global_position.y = map_to_local(all_rows[current_level][0]).y
 	set_types()
+	safe()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -86,13 +86,24 @@ func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("action")):
 		m_pos = get_global_mouse_position()
 		clicked = local_to_map(m_pos)
-		
 		if current_path == []:
 			choose_path(clicked)
 			#print(current_path)
-			
-		if all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y and current_path.has(clicked):
-			#print(clicked)
+		
+		if clicked.y != all_rows[0][0].y:
+			#print(previous_nodes[current_path[current_level]])
+			#print("Previous: "+str(previous_node))
+			#print("Previous_2: "+str(previous_nodes[clicked]))
+			#print(previous_nodes)
+			if all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y and check_previous(clicked):
+				#print(previous_nodes)
+				previous_node = clicked
+				#print(previous_node)
+				safe()
+				enter_level()
+		elif all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y:
+			previous_node = clicked
+			#print(previous_node)
 			safe()
 			enter_level()
 
@@ -107,8 +118,7 @@ func make_path(start,row,path):
 	#if not PATHS[path].has(start):
 	PATHS[path].append(start)
 	PATHS[path].sort_custom(array_sort)
-	if start not in path_nodes:
-		generate_type(start,row)
+	generate_type(start,row)
 	if row < len(all_rows)-1:
 		has_connection.append(start)
 		point_a = map_to_local(start)
@@ -121,15 +131,22 @@ func make_path(start,row,path):
 		connections.append([point_a,point_b])
 		if may_next != Vector2i(0,0):
 			connections.append([point_a,map_to_local(may_next)])
+			previous_nodes[may_next] = start
 			make_path(may_next,row,path)
+		previous_nodes[next] = start
 		make_path(next,row,path)
+		if may_next != Vector2i(0,0):
+			print(str(may_next)+ " : " + str(previous_nodes[may_next]))
+			print(str(next)+ " : " + str(previous_nodes[next]))
 	else:
 		point_a = map_to_local(start)
 		#print(point_a)
 		var next = (all_rows[row]).pick_random()
 		point_b = map_to_local(next)
 		#print(next)
+		previous_nodes[next] = start
 		connections.append([point_a,point_b])
+		#print(previous_nodes)
 
 
 func pick_closest(pos, row):
@@ -183,7 +200,7 @@ func enter_level():
 
 
 func safe():
-	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes]
+	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes]
 
 
 func load_map():
@@ -194,15 +211,19 @@ func load_map():
 	has_connection = GLOBAL.leveltree[4]
 	PATHS = GLOBAL.leveltree[5]
 	current_path = GLOBAL.leveltree[6]
-	print(current_path)
+	#print(current_path)
 	current_level = GLOBAL.current_level-1
 	path_nodes = GLOBAL.leveltree[7]
+	previous_node = GLOBAL.leveltree[8]
+	previous_nodes = GLOBAL.leveltree[9]
 
 
 func generate_type(node,row):
 	var roll = randi_range(1,100)
 	if row <= 1:
 		path_nodes[node] = 3
+	elif row == len(all_rows)-2:
+		path_nodes[node] = 2
 	elif row == len(all_rows)-1:
 		path_nodes[node] = 4
 	elif roll < 10:
@@ -218,5 +239,17 @@ func generate_type(node,row):
 
 func set_types():
 	for i in path_nodes:
-		print(i, path_nodes[i])
+		#print(i, path_nodes[i])
 		set_cell(i,path_nodes[i],Vector2(0,0))
+
+
+func check_previous(clicked):
+	if current_path.has(clicked):
+		print("///")
+		print(str(previous_node) + "==" + str(previous_nodes[clicked]))
+		if previous_nodes[clicked] == previous_node:
+			#print(str(previous_node)+ " : " + str(previous_nodes[clicked]))
+			#print(str(previous_node)+ " : " + str(previous_nodes[clicked]))
+			return true
+	else:
+		return false
