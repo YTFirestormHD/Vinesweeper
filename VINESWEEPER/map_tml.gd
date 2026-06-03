@@ -211,7 +211,10 @@ func enter_level(clicked):
 		GLOBAL.max_bombs = 40
 	if GLOBAL.current_level == len(all_rows):
 		GLOBAL.beaten_once = true
-		get_tree().change_scene_to_file("res://end_screen.tscn")
+		if get_cell_source_id(get_used_cells()[clicked]) == 3:
+			get_tree().change_scene_to_file("res://end_screen.tscn")
+		elif get_cell_source_id(get_used_cells()[clicked]) == 1:
+			get_tree().change_scene_to_file("res://events.tscn")
 	else:
 		get_tree().change_scene_to_file("res://game_board.tscn")
 
@@ -251,10 +254,10 @@ func generate_type(node,row):
 	elif row == len(all_rows)-1:
 		path_nodes[node] = 4
 		#Ende (wird vielleicht zu Boss)
-	elif roll < 10:
+	elif roll < 35:
 		path_nodes[node] = 1
 		#Random Event
-	elif roll < 30:
+	elif roll < 35:
 		path_nodes[node] = 2
 		#Shop
 	else:
