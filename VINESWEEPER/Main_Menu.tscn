@@ -173,12 +173,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="Label2" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=48668418]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
 script = ExtResource("6_wrfco")
 
 [node name="Board_Size_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=125832632]
+visible = false
 custom_minimum_size = Vector2(400, 16)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -189,11 +191,13 @@ max_value = 19.0
 value = 4.0
 
 [node name="Label3" type="Label" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=202353592]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 script = ExtResource("7_teegn")
 
 [node name="Max_Bombs_Slider" type="HSlider" parent="Options/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1860344930]
+visible = false
 custom_minimum_size = Vector2(400, 16)
 layout_mode = 2
 size_flags_horizontal = 0
