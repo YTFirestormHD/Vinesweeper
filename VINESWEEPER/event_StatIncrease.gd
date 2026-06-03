@@ -1,5 +1,5 @@
-extends Control
-@onready var stat_increase: Label = $TextBox/Event_StatIncrease
+extends Label
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
