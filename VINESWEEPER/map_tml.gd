@@ -20,16 +20,17 @@ var PATHS = []
 var current_path = []
 var path_nodes = {}
 var previous_nodes = {}
-var previous_node = 0
-<<<<<<< Updated upstream
+var previous_node = Vector2i(0,0)
 var finished = []
-=======
 var crossings = {}
->>>>>>> Stashed changes
+var pre_previous_node
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if GLOBAL.board_revealed:
+		get_tree().change_scene_to_file("res://game_board.tscn")
 	if GLOBAL.map_done:
 		load_map()
 	else:
@@ -72,9 +73,12 @@ func _ready() -> void:
 			#print(i)
 			new_map.erase_cell(i)
 		GLOBAL.map_done = true
-	cam.global_position.y = map_to_local(all_rows[current_level][0]).y
+	if current_level != 0:
+		cam.global_position.y = map_to_local(all_rows[current_level][0]).y
+	else:
+		cam.global_position.y = map_to_local(all_rows[current_level][0]).y+get_viewport_rect().size.y/8
 	set_types()
-	safe()
+	#safe()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -84,13 +88,14 @@ func _process(delta: float) -> void:
 
 func _draw():
 	for connection in connections:
-		draw_line(connection[0], connection[1], Color.RED, 3)
+		draw_line(connection[0], connection[1], Color.DARK_GOLDENROD, 7)
 
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("action")):
 		m_pos = get_global_mouse_position()
 		clicked = local_to_map(m_pos)
+		#print(all_rows[current_level][0].y)
 		if current_path == []:
 			choose_path(clicked)
 			#print(current_path)
@@ -103,11 +108,13 @@ func _input(event: InputEvent) -> void:
 			#print(previous_node)
 			if all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y and check_previous(clicked):
 				#print(previous_nodes)
+				pre_previous_node = previous_node
 				previous_node = clicked
 				#print(previous_node)
 				safe()
 				enter_level(clicked)
 		elif all_cells.has(clicked) and clicked.y == all_rows[current_level][0].y:
+			pre_previous_node = previous_node
 			previous_node = clicked
 			#print(previous_node)
 			safe()
@@ -139,7 +146,7 @@ func make_path(start,row,path):
 			connections.append([point_a,map_to_local(may_next)])
 			previous_nodes[start] = [next, may_next]
 			crossings[start] = [next, may_next]
-			print(str(start) + " : "+ str(previous_nodes[start]))
+			#print(str(start) + " : "+ str(previous_nodes[start]))
 			make_path(may_next,row,path)
 			make_path(next,row,path)
 		else:
@@ -195,7 +202,7 @@ func choose_path(from):
 
 
 func enter_level(clicked):
-	finished.append(clicked)
+	#finished.append(clicked)
 	GLOBAL.difficulty_board_size += (GLOBAL.current_level - 1) * 1.2
 	if GLOBAL.difficulty_board_size > 18:
 		GLOBAL.difficulty_board_size = 18
@@ -203,17 +210,14 @@ func enter_level(clicked):
 	if GLOBAL.max_bombs > 40:
 		GLOBAL.max_bombs = 40
 	if GLOBAL.current_level == len(all_rows):
+		GLOBAL.beaten_once = true
 		get_tree().change_scene_to_file("res://end_screen.tscn")
 	else:
 		get_tree().change_scene_to_file("res://game_board.tscn")
 
 
 func safe():
-<<<<<<< Updated upstream
-	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes,finished]
-=======
-	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes,crossings]
->>>>>>> Stashed changes
+	GLOBAL.leveltree = [all_cells,all_rows,current_row,connections,has_connection,PATHS,current_path,path_nodes,previous_node,previous_nodes,crossings,finished,pre_previous_node]
 
 
 func load_map():
@@ -228,11 +232,14 @@ func load_map():
 	path_nodes = GLOBAL.leveltree[7]
 	previous_node = GLOBAL.leveltree[8]
 	previous_nodes = GLOBAL.leveltree[9]
-<<<<<<< Updated upstream
-	finished = GLOBAL.leveltree[10]
-=======
 	crossings = GLOBAL.leveltree[10]
->>>>>>> Stashed changes
+	finished = GLOBAL.leveltree[11]
+	finished.append(previous_node)
+	pre_previous_node = GLOBAL.leveltree[12]
+	if GLOBAL.continue_flag == true:
+		print(pre_previous_node)
+		previous_node = pre_previous_node
+		GLOBAL.continue_flag = false
 
 
 func generate_type(node,row):
@@ -243,6 +250,7 @@ func generate_type(node,row):
 		path_nodes[node] = 2
 	elif row == len(all_rows)-1:
 		path_nodes[node] = 4
+		#Ende (wird vielleicht zu Boss)
 	elif roll < 10:
 		path_nodes[node] = 1
 		#Random Event
@@ -255,27 +263,40 @@ func generate_type(node,row):
 
 
 func set_types():
-	for i in path_nodes:
-		#print(i, path_nodes[i])
-		if i in current_path or current_path == []:
-			set_cell(i,path_nodes[i],Vector2(0,0))
-		else:
-			set_cell(i,path_nodes[i]+10,Vector2(0,0))
-	for i in finished:
-		set_cell(i,path_nodes[i]+10,Vector2(0,0))
+	if previous_node == Vector2i(0,0):
+		for i in path_nodes:
+			if i.y == all_rows[current_level][0].y:
+				set_cell(i,path_nodes[i],Vector2(0,0))
+			else:
+				set_cell(i,path_nodes[i]+10,Vector2(0,0))
+	else:
+		print(path_nodes)
+		print(previous_nodes[previous_node])
+		#if current_level != len(all_rows):
+		#set_cell(all_rows[len(all_rows)][0],path_nodes[all_rows[len(all_rows)-1][0]],Vector2(0,0))
+		for i in path_nodes:
+			if previous_nodes[previous_node].has(i):
+				set_cell(i,path_nodes[i],Vector2(0,0))
+			else:
+				set_cell(i,path_nodes[i]+10,Vector2(0,0))
+			if previous_node in crossings:
+				if crossings[previous_node].has(i):
+					set_cell(i,path_nodes[i],Vector2(0,0))
+	for j in finished:
+		set_cell(j,path_nodes[j]+20,Vector2(0,0))
 
 
 func check_previous(clicked):
-	print("///")
-	print("Clicked: "+str(clicked))
-	print("Previous: "+str(previous_node))
-	print("Dict: "+str(previous_nodes[previous_node]))
+	#print("///")
+	#print("Clicked: "+str(clicked))
+	#print("Previous: "+str(previous_node))
+	#print("Dict: "+str(previous_nodes[previous_node]))
 	if previous_nodes[previous_node].has(clicked):
 		return true
 	elif previous_node in crossings:
 		if crossings[previous_node].has(clicked):
 			return true
 	else:
-		print(previous_nodes)
-		print(crossings)
+		#print(previous_nodes)
+		#print(crossings)
 		return false

@@ -7,6 +7,8 @@ extends Control
 @onready var board_size_slider: HSlider = $Options/VBoxContainer/VBoxContainer2/VBoxContainer/Board_Size_Slider
 @onready var max_bombs_slider: HSlider = $Options/VBoxContainer/VBoxContainer2/VBoxContainer/Max_Bombs_Slider
 @onready var fullscreen_button: CheckButton = $Options/VBoxContainer/VBoxContainer2/Fullscreen_Button
+@onready var continue_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/continue
+@onready var credits_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/credits
 
 
 
@@ -14,7 +16,12 @@ extends Control
 func _ready() -> void:
 	GLOBAL.difficulty_board_size = GLOBAL.difficulty_board_size_basis
 	GLOBAL.max_bombs = GLOBAL.max_bombs_basis
-	
+	continue_button.visible = false
+	credits_button.visible = false
+	if GLOBAL.map_done:
+		continue_button.visible = true
+	if GLOBAL.beaten_once:
+		credits_button.visible = true
 	options.visible = false
 	v_box_container.visible = true
 	board_size_slider.set_value(GLOBAL.difficulty_board_size)
@@ -29,16 +36,14 @@ func _process(_delta: float) -> void:
 
 
 func _continue_button_pressed() -> void:
-	#print(GLOBAL.board_revealed)
-	print(GLOBAL.board_revealed)
-	if GLOBAL.board_revealed == true or GLOBAL.current_level > 1:
-		get_tree().change_scene_to_file("res://new_leveltree.tscn")
-	else:
-		pass
+	GLOBAL.continue_flag = true
+	get_tree().change_scene_to_file("res://new_leveltree.tscn")
+
 
 
 func _newgame_button_pressed() -> void:
 	GLOBAL.current_level = 1
+	GLOBAL.map_done = false
 	GLOBAL.board_revealed = false
 	get_tree().change_scene_to_file("res://new_leveltree.tscn")
 
@@ -55,6 +60,10 @@ func _leave_options():
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://credits.tscn")
 
 
 func _input(event):

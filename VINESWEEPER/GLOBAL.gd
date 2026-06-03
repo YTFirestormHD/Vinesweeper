@@ -23,6 +23,8 @@ var end_of_game
 var current_path = []
 var leveltree
 var map_done = false
+var continue_flag = false
+var beaten_once = false
 
 
 func _ready() -> void:

@@ -13,4 +13,6 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	get_tree().quit()
+	GLOBAL.map_done = false
+	GLOBAL.board_revealed = false
+	get_tree().change_scene_to_file("res://Main_Menu.tscn")

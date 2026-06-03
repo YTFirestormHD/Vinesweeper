@@ -3,15 +3,13 @@
 [ext_resource type="Theme" uid="uid://cplfv47rjpe8t" path="res://assets/public-pixel-font/new_font.tres" id="1_tu7k8"]
 [ext_resource type="Script" uid="uid://cgd8m1fgqoaqe" path="res://main_menu.gd" id="2_5cvai"]
 [ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="3_domf7"]
+[ext_resource type="Texture2D" uid="uid://bjw0lhk6t0kyg" path="res://assets/bg_images/Gemini_Generated_Image_bsslz0bsslz0bssl-clean.png" id="3_tu7k8"]
 [ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="5_t301m"]
 [ext_resource type="Script" uid="uid://ceiltsrr7gn24" path="res://label_2.gd" id="6_wrfco"]
 [ext_resource type="Script" uid="uid://c0lp80voe2m2u" path="res://label_3.gd" id="7_teegn"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_257up"]
-load_path = "res://.godot/imported/jungle-landscape-pixel-art-style.png-d25eed948f0c6e0b84bb2aab2d125bc1.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_domf7"]
-texture = SubResource("CompressedTexture2D_257up")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5cvai"]
+texture = ExtResource("3_tu7k8")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu7k8"]
 
@@ -35,13 +33,14 @@ theme = ExtResource("1_tu7k8")
 script = ExtResource("2_5cvai")
 
 [node name="Background" type="Panel" parent="." unique_id=1640718868]
+modulate = Color(1, 1, 1, 0.84313726)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_domf7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_5cvai")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=955039536]
 layout_mode = 1
@@ -102,6 +101,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_domf7")
 text = "Options"
 alignment = 0
 
+[node name="credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options" unique_id=1364511629]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dnfjo")
+text = "CREDITS"
+alignment = 0
+
 [node name="quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options" unique_id=1356489981]
 layout_mode = 2
 size_flags_vertical = 3
@@ -114,8 +122,8 @@ alignment = 0
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1530458320]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_t301m")
-theme_override_font_sizes/font_size = 16
-text = "VERSION 0.1.0"
+theme_override_font_sizes/font_size = 14
+text = "VERSION 0.2.0"
 
 [node name="Options" type="Panel" parent="." unique_id=83902499]
 layout_mode = 1
@@ -209,6 +217,7 @@ text = "Fullscreen"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/newgame" to="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/newgame" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/options" to="." method="_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/options" to="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/options" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu_Options/quit" to="." method="_on_quit_pressed"]
 [connection signal="gui_input" from="Options" to="." method="_on_options_gui_input"]
 [connection signal="visibility_changed" from="Options" to="." method="_on_options_visibility_changed"]
