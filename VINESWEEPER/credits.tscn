@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://r36r53pgrb4w"]
+
+[ext_resource type="Script" uid="uid://dsxj2ifn5y6e2" path="res://credits.gd" id="1_nm7lk"]
+[ext_resource type="Texture2D" uid="uid://cq66jeqg2ode6" path="res://assets/bg_images/jungle_tempel_v1.png" id="2_c1t8d"]
+
+[node name="Control" type="Control" unique_id=587887962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nm7lk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1684525019]
+modulate = Color(0.3791798, 0.3791798, 0.37917978, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c1t8d")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1540264530]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -148.0
+offset_right = 880.0
+offset_bottom = 148.0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_constants/margin_left = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=400708668]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label13" type="Label" parent="MarginContainer/VBoxContainer" unique_id=984145728]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CODE BY"
+
+[node name="Label12" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1306935684]
+layout_mode = 2
+text = "Moritz Gruber"
+
+[node name="Label9" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1233080502]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ART BY"
+
+[node name="Label10" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1832346834]
+layout_mode = 2
+text = "Franz Barbist (Game-Tiles, Map, Map-Icons)"
+
+[node name="Label11" type="Label" parent="MarginContainer/VBoxContainer" unique_id=802058572]
+layout_mode = 2
+text = "Moritz Gruber (Mostly polish)"
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1568570234]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "IDEA BY"
+
+[node name="Label7" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1008313962]
+layout_mode = 2
+text = "Franz Barbist"
+
+[node name="Label8" type="Label" parent="MarginContainer/VBoxContainer" unique_id=625551074]
+layout_mode = 2
+text = "Moritz Gruber"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1881177187]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUSIC BY"
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2063568442]
+layout_mode = 2
+text = "Franz Barbist (nothing yet)"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1953870434]
+layout_mode = 2
+text = "Moritz Gruber (nothing yet)"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=229013332]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "OTHER ASSETS USED:"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1742442061]
+layout_mode = 2
+text = "BDragon1727 - Retro Pixel Ribbons, Banners and Frames 2	"
+
+[node name="Label14" type="Label" parent="MarginContainer/VBoxContainer" unique_id=548143843]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "
+and i guess Matthias was also here"
