@@ -46,7 +46,7 @@ text = "CODE BY"
 
 [node name="Label12" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1306935684]
 layout_mode = 2
-text = "Moritz Gruber"
+text = "Mostly Moritz Gruber, Matthias Kreuzbichler"
 
 [node name="Label9" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1233080502]
 layout_mode = 2
@@ -59,7 +59,11 @@ text = "Franz Barbist (Game-Tiles, Map, Map-Icons)"
 
 [node name="Label11" type="Label" parent="MarginContainer/VBoxContainer" unique_id=802058572]
 layout_mode = 2
-text = "Moritz Gruber (Mostly polish)"
+text = "Moritz G. (Mostly polish)"
+
+[node name="Label14" type="Label" parent="MarginContainer/VBoxContainer" unique_id=811192426]
+layout_mode = 2
+text = "Matthias K. (Suggestions)"
 
 [node name="Label5" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1568570234]
 layout_mode = 2
@@ -68,11 +72,11 @@ text = "IDEA BY"
 
 [node name="Label7" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1008313962]
 layout_mode = 2
-text = "Franz Barbist"
+text = "Franz B."
 
 [node name="Label8" type="Label" parent="MarginContainer/VBoxContainer" unique_id=625551074]
 layout_mode = 2
-text = "Moritz Gruber"
+text = "Moritz G."
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1881177187]
 layout_mode = 2
@@ -81,11 +85,11 @@ text = "MUSIC BY"
 
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2063568442]
 layout_mode = 2
-text = "Franz Barbist (nothing yet)"
+text = "Franz B."
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1953870434]
 layout_mode = 2
-text = "Moritz Gruber (nothing yet)"
+text = "Moritz G."
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=229013332]
 layout_mode = 2
@@ -95,9 +99,3 @@ text = "OTHER ASSETS USED:"
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1742442061]
 layout_mode = 2
 text = "BDragon1727 - Retro Pixel Ribbons, Banners and Frames 2	"
-
-[node name="Label14" type="Label" parent="MarginContainer/VBoxContainer" unique_id=548143843]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "
-and i guess Matthias was also here"
