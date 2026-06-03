@@ -28,6 +28,7 @@ grow_vertical = 2
 texture = ExtResource("1_hc5s2")
 
 [node name="TextBox" type="TextureRect" parent="." unique_id=213077870]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.87000006
@@ -146,8 +147,60 @@ anchor_left = 0.365
 anchor_top = 0.418
 anchor_right = 0.365
 anchor_bottom = 0.418
-offset_left = -0.480011
-offset_top = 0.13598633
-offset_right = 223.51999
-offset_bottom = 34.135986
+offset_left = 29.519989
+offset_top = 196.13599
+offset_right = 253.51999
+offset_bottom = 230.13599
 text = "(Icon, maybe?)"
+
+[node name="Optionen" type="Label" parent="." unique_id=1761159451]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36600003
+anchor_top = 0.252
+anchor_right = 0.36600003
+anchor_bottom = 0.252
+offset_left = -62.63202
+offset_top = 9.703995
+offset_right = 385.36798
+offset_bottom = 88.703995
+text = "A surge of an ancient energy
+ pulses through the air ...
+You feel your body respond to
+an unseen force.
+
+Choose your enhancement:"
+
+[node name="Option1" type="Button" parent="." unique_id=1828601006]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22900002
+anchor_top = 0.46800002
+anchor_right = 0.22900002
+anchor_bottom = 0.46800002
+offset_left = 0.19198608
+offset_top = -0.26400757
+offset_right = 329.192
+offset_bottom = 121.73599
+text = "Attack Increase — 
+strike harder 
+than ever before"
+
+[node name="Option2" type="Button" parent="." unique_id=696492391]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 0.46800002
+anchor_right = 0.521
+anchor_bottom = 0.46800002
+offset_left = -0.1920166
+offset_top = -0.26400757
+offset_right = 337.80798
+offset_bottom = 120.73599
+text = "Speed Increase — 
+
+move with 
+unmatched agility"
