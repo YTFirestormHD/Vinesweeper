@@ -1,5 +1,10 @@
-res://game_board.tscn::c6e5cb619373d7073c3b1a4544b76a38::1776348506::res://.godot/exported/133200997/export-b00b953a8be4b454013a09d62d9b73a4-game_board.scn
-res://Main_Menu.tscn::0e1fbf0f42be7db275a6ee2581c24219::1776383149::res://.godot/exported/133200997/export-b5e115b267edc2389f2d550b69b9ba66-Main_Menu.scn
-res://root.tscn::c0c89319b03f6b57a468b9925a53da39::1775680144::res://.godot/exported/133200997/export-6581cd44ca730c421bddc3302d6ce6cc-root.scn
-res://settings_menu.tscn::3eb6c0347d39d13a00350a85725d6ff4::1775680144::res://.godot/exported/133200997/export-ed75ec62f7a09791727b81987409fab8-settings_menu.scn
-res://assets/public-pixel-font/new_font.tres::1af6b85a26ed9cdf1d8f057a91d645bb::1776351991::res://.godot/exported/133200997/export-6ad31e99a1536cc8ee243118a107bebf-new_font.res
+res://game_board.tscn::8eef8ee56006a1af23877eaceb310edf::1780471868::res://.godot/exported/133200997/export-b00b953a8be4b454013a09d62d9b73a4-game_board.scn
+res://Main_Menu.tscn::9151960e33df29b7905b97833466b939::1780449204::res://.godot/exported/133200997/export-b5e115b267edc2389f2d550b69b9ba66-Main_Menu.scn
+res://root.tscn::9a459e7fe01e75f50e601ce08acce4a1::1777453640::res://.godot/exported/133200997/export-6581cd44ca730c421bddc3302d6ce6cc-root.scn
+res://assets/public-pixel-font/new_font.tres::156d0863a11a271edb2048acd0d57e52::1777453640::res://.godot/exported/133200997/export-6ad31e99a1536cc8ee243118a107bebf-new_font.res
+res://credits.tscn::c28f063603c13a951d1c176c0e323373::1780449570::res://.godot/exported/133200997/export-88886d509479dcca8ec994bc2c1f3191-credits.scn
+res://end_screen.tscn::196ada78d211989a76ca6f3e79d529a1::1780449204::res://.godot/exported/133200997/export-1cf26ef696ecefdd6fd9892dc8672a36-end_screen.scn
+res://Level_tree.tscn::b5c1c126fe3206e1a6e7d1755088668c::1780449204::res://.godot/exported/133200997/export-b97b719060753275564bbdf4498c2cd3-Level_tree.scn
+res://new_leveltree.tscn::34895be8ebb6ab67da14e7a5f73cad09::1780449204::res://.godot/exported/133200997/export-f5cfe735c98a058d43d181305d41304b-new_leveltree.scn
+res://bossfight.tscn::910888aa317423b782f074a3bd40a025::1780471587::res://.godot/exported/133200997/export-f4484553c12889c514e3869972ef56f4-bossfight.scn
+res://events.tscn::e40f6c37b988a796dc8ff343316a1213::1780476502::res://.godot/exported/133200997/export-4a1efbc4dc6cb760c3c7318d4b95b267-events.scn

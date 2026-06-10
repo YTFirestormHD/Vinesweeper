@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://cmkn8g0rd0l68"]
+
+[ext_resource type="Script" uid="uid://cr7om1hls21j0" path="res://events.gd" id="1_ox3jd"]
+
+[node name="Control" type="Control" unique_id=1844181030]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox3jd")
+
+[node name="event_1" type="TextureRect" parent="." unique_id=558523231]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_1" unique_id=836259343]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="title_event_1" type="Label" parent="event_1/VBoxContainer" unique_id=738108131]
+layout_mode = 2
+
+[node name="description_event_1" type="Label" parent="event_1/VBoxContainer" unique_id=1387953513]
+layout_mode = 2
+
+[node name="event_2" type="TextureRect" parent="." unique_id=1383588793]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_2" unique_id=845038648]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="title_event_1" type="Label" parent="event_2/VBoxContainer" unique_id=273021460]
+layout_mode = 2
+
+[node name="description_event_1" type="Label" parent="event_2/VBoxContainer" unique_id=112244477]
+layout_mode = 2
+
+[node name="event_3" type="TextureRect" parent="." unique_id=239390120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_3" unique_id=953684062]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="title_event_1" type="Label" parent="event_3/VBoxContainer" unique_id=1567730098]
+layout_mode = 2
+
+[node name="description_event_1" type="Label" parent="event_3/VBoxContainer" unique_id=652669273]
+layout_mode = 2
+
+[node name="event_4" type="TextureRect" parent="." unique_id=1556266645]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_4" unique_id=977238934]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="title_event_1" type="Label" parent="event_4/VBoxContainer" unique_id=2133679236]
+layout_mode = 2
+
+[node name="description_event_1" type="Label" parent="event_4/VBoxContainer" unique_id=1639764232]
+layout_mode = 2
+
+[node name="event_5" type="TextureRect" parent="." unique_id=1940434701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="event_5" unique_id=2043739798]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="title_event_1" type="Label" parent="event_5/VBoxContainer" unique_id=217285857]
+layout_mode = 2
+
+[node name="description_event_1" type="Label" parent="event_5/VBoxContainer" unique_id=1309541685]
+layout_mode = 2
