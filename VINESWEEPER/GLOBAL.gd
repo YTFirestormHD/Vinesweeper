@@ -25,7 +25,8 @@ var leveltree
 var map_done = false
 var continue_flag = false
 var beaten_once = false
-
+var start_items = {"check" : 3}
+var items = {"check" : 3}
 
 func _ready() -> void:
 	pass

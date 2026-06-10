@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 
 func _continue_button_pressed() -> void:
 	GLOBAL.continue_flag = true
-	get_tree().change_scene_to_file("res://new_leveltree.tscn")
+	get_tree().change_scene_to_file("res://scenes/leveltree.tscn")
 
 
 
@@ -45,7 +45,7 @@ func _newgame_button_pressed() -> void:
 	GLOBAL.current_level = 1
 	GLOBAL.map_done = false
 	GLOBAL.board_revealed = false
-	get_tree().change_scene_to_file("res://new_leveltree.tscn")
+	get_tree().change_scene_to_file("res://scenes/leveltree.tscn")
 
 
 func _options_button_pressed() -> void:
@@ -63,7 +63,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	get_tree().change_scene_to_file("res://credits.tscn")
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
 
 func _input(event):
