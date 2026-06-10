@@ -4,8 +4,8 @@ Here you can add events quickly without needing to code them. Down below you can
 	test event			<-- This is your events name
 	action 				<-- This is the action your event triggers. If you have multiple actions, split them with ';'. All possible actions are in a list below.
 	value				<-- This is the value your action has. If you have multiple actions, be careful that this is at the same position as the action. Again, split with ';'.
-	#this does nothing. lines with # are just comments
-	text					<-- This is the text that will be displayed in-game. You can use multiple lines for this. Dont make it too long, display space is limited
+	#This does nothing. <-- Lines with '#' are just comments.
+	text				<-- This is the text that will be displayed in-game. You can use multiple lines for this. Dont make it too long, display space is limited
 	text
 	text
 _end_					<-- End of event declaration
@@ -18,16 +18,16 @@ _end_
 
 a list of all actions and what type of value they need:
 	heal : "integer"
-	heal% : "integer"				<-- Heals a percantage of your current max_hp
+	heal% : "integer"				<-- Heals a percantage of your current max_hp.
 	damage : "integer"
-	damage% : "integer"				<-- Deals a percantage amount of your current hp
+	damage% : "integer"				<-- Deals a percantage amount of your current hp.
 	lose_coins : "integer"
 	lose_coins% : "integer"			<-- Amount will be calculated using your current amount of coins. Prefered over a fixed value.
 	gain_coins : "integer"
 	gain_coins% : "integer"
-	gain_special : "name"			<-- There are currently none
-	lose_special : "name"			<-- There are currently none
-	gain_item : "integer"+"name"		<-- Gives you the named item n-times. Currently available items are listed below. Use the '+'.
+	gain_special : "name"			<-- There are currently none.
+	lose_special : "name"			<-- There are currently none.
+	gain_item : "integer"+"name"	<-- Gives you the named item n-times. Currently available items are listed below. Use the '+'.
 	
 a list of all items:
 	check
