@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://r36r53pgrb4w"]
 
-[ext_resource type="Script" uid="uid://dsxj2ifn5y6e2" path="res://credits.gd" id="1_nm7lk"]
-[ext_resource type="Texture2D" uid="uid://cq66jeqg2ode6" path="res://assets/bg_images/jungle_tempel_v1.png" id="2_c1t8d"]
+[ext_resource type="Script" uid="uid://dsxj2ifn5y6e2" path="res://credits.gd" id="1_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://cq66jeqg2ode6" path="res://assets/bg_images/jungle_tempel_v1.png" id="2_0ctdu"]
 
 [node name="Control" type="Control" unique_id=587887962]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nm7lk")
+script = ExtResource("1_2ckv8")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1684525019]
 modulate = Color(0.3791798, 0.3791798, 0.37917978, 1)
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_c1t8d")
+texture = ExtResource("2_0ctdu")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1540264530]
@@ -46,7 +46,11 @@ text = "CODE BY"
 
 [node name="Label12" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1306935684]
 layout_mode = 2
-text = "Mostly Moritz Gruber, Matthias Kreuzbichler"
+text = "Moritz Gruber"
+
+[node name="Label15" type="Label" parent="MarginContainer/VBoxContainer" unique_id=240905972]
+layout_mode = 2
+text = "Matthias Kreuzbichler"
 
 [node name="Label9" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1233080502]
 layout_mode = 2

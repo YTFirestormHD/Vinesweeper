@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	GLOBAL.map_done = false
 	GLOBAL.board_revealed = false
-	get_tree().change_scene_to_file("res://Main_Menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Main_Menu.tscn")

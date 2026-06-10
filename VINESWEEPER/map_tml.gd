@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-@onready var new_map: TileMapLayer = $"."
+@onready var map: TileMapLayer = $"."
 @onready var cam: Camera2D = $"../Camera2D"
 
 
@@ -30,7 +30,7 @@ var pre_previous_node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if GLOBAL.board_revealed:
-		get_tree().change_scene_to_file("res://game_board.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_board.tscn")
 	if GLOBAL.map_done:
 		load_map()
 	else:
@@ -71,7 +71,7 @@ func _ready() -> void:
 	for i in all_cells:
 		if not has_connection.has(i) and i != all_cells.back():
 			#print(i)
-			new_map.erase_cell(i)
+			map.erase_cell(i)
 		GLOBAL.map_done = true
 	if current_level != 0:
 		cam.global_position.y = map_to_local(all_rows[current_level][0]).y
@@ -203,17 +203,20 @@ func choose_path(from):
 
 func enter_level(clicked):
 	#finished.append(clicked)
-	GLOBAL.difficulty_board_size += (GLOBAL.current_level - 1) * 1.2
-	if GLOBAL.difficulty_board_size > 18:
-		GLOBAL.difficulty_board_size = 18
-	GLOBAL.max_bombs += (GLOBAL.current_level) * (GLOBAL.current_level*2/3)
-	if GLOBAL.max_bombs > 40:
-		GLOBAL.max_bombs = 40
 	if GLOBAL.current_level == len(all_rows):
 		GLOBAL.beaten_once = true
-		get_tree().change_scene_to_file("res://end_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	else:
-		get_tree().change_scene_to_file("res://game_board.tscn")
+		if get_cell_source_id(clicked) == 1:
+			get_tree().change_scene_to_file("res://scenes/events.tscn")
+		else:
+			GLOBAL.difficulty_board_size += (GLOBAL.current_level - 1) * 1.2
+			if GLOBAL.difficulty_board_size > 18:
+				GLOBAL.difficulty_board_size = 18
+			GLOBAL.max_bombs += (GLOBAL.current_level) * (GLOBAL.current_level*2/3)
+			if GLOBAL.max_bombs > 40:
+				GLOBAL.max_bombs = 40
+			get_tree().change_scene_to_file("res://scenes/game_board.tscn")
 
 
 func safe():
@@ -247,7 +250,9 @@ func generate_type(node,row):
 	if row <= 1:
 		path_nodes[node] = 3
 	elif row == len(all_rows)-2:
-		path_nodes[node] = 2
+		#path_nodes[node] = 2
+		path_nodes[node] = 1
+		#Shop is currently replaced by event
 	elif row == len(all_rows)-1:
 		path_nodes[node] = 4
 		#Ende (wird vielleicht zu Boss)
@@ -255,8 +260,9 @@ func generate_type(node,row):
 		path_nodes[node] = 1
 		#Random Event
 	elif roll < 30:
-		path_nodes[node] = 2
-		#Shop
+		#path_nodes[node] = 2
+		path_nodes[node] = 1
+		#Shop is currently replaced by event
 	else:
 		path_nodes[node] = 3
 		#Normal Encounter

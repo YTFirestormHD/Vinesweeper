@@ -205,3 +205,9 @@ func safe_game():
 
 func _on_button_pressed() -> void:
 	win()
+
+
+func _on_check_pressed() -> void:
+	if GLOBAL.board_revealed and FLAGGED != BOARD and GLOBAL.items["check"] > 0:
+		GLOBAL.items["check"] -= 1
+		reveal(BOARD.pick_random())

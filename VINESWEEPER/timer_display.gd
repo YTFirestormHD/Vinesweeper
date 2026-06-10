@@ -1,5 +1,6 @@
 extends Control
-@onready var options: Panel = $"../TileMapLayer/Camera2D/Options"
+@onready var options: Panel = $"../board/Camera2D/Options"
+
 
 
 func _ready():

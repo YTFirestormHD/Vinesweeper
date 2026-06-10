@@ -1,12 +1,13 @@
 extends Node2D
-@onready var options: Panel = $TileMapLayer/Camera2D/Options
+@onready var options: Panel = $board/Camera2D/Options
 @onready var background: Panel = $Background
-@onready var tml: TileMapLayer = $TileMapLayer
+@onready var tml: TileMapLayer = $board
 @onready var lose: VBoxContainer = $Background/Result/MarginContainer/Lose
 @onready var win: VBoxContainer = $Background/Result/MarginContainer/Win
 @onready var timer: Label = $Timer
 @onready var level_display_during_game: Label = $Level_display_during_game
 @onready var level: Label = $Level
+@onready var cam: Camera2D = $board/Camera2D
 var delta = 1/60
 
 
@@ -47,28 +48,24 @@ func _on_continue_button_pressed() -> void:
 
 func back_to_title() -> void:
 	tml.safe_game()
-	get_tree().change_scene_to_file("res://Main_Menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Main_Menu.tscn")
 
 
 func back_to_levels():
 	GLOBAL.current_level += 1
-	if GLOBAL.end_of_game:
-		get_tree().change_scene_to_file("res://end_screen.tscn")
-	else:
-		get_tree().change_scene_to_file("res://new_leveltree.tscn")
+	get_tree().change_scene_to_file("res://scenes/leveltree.tscn")
 
 
 func load_background():
 	var style_box: StyleBoxTexture = background.get_theme_stylebox("panel")
 	#style_box.texture = load("res://assets/bg_images/jungle-landscape-pixel-art-style.png")
 	#background.add_theme_stylebox_override("panel", style_box)
-	background.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
+	background.set_position(Vector2(-(get_viewport_rect().size.x/2-cam.position.x),-(get_viewport_rect().size.y/2-cam.position.y)))
 
 
 func load_displays():
-	timer.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)))
-	level.set_position(Vector2(-(get_viewport_rect().size.x/2-$TileMapLayer/Camera2D.position.x),-(get_viewport_rect().size.y/2-$TileMapLayer/Camera2D.position.y)+20))
-
+	timer.set_position(Vector2(-(get_viewport_rect().size.x/2-cam.position.x),-(get_viewport_rect().size.y/2-cam.position.y)))
+	level.set_position(Vector2(-(get_viewport_rect().size.x/2-cam.position.x),-(get_viewport_rect().size.y/2-cam.position.y)+20))
 
 
 func result(result_win):
@@ -91,3 +88,4 @@ func reset_game():
 	GLOBAL.coins = 0
 	GLOBAL.new_coins = 0
 	GLOBAL.map_done = false
+	GLOBAL.items = GLOBAL.start_items
