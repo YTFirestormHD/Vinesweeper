@@ -29,7 +29,7 @@ func _ready() -> void:
 	elif n < 0.01:
 		title.text = "Moritz has blessed your run"
 	elif n < 0.05:
-		title.text = "Matias Easter egg!"
+		title.text = "Matias Easter Egg!"
 	
 	if randf() <= 0:#for now only 1 choice event is possible
 		show_choice_event()
