@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cplfv47rjpe8t"]
+
+[ext_resource type="FontFile" uid="uid://c6owsmdhmw0b3" path="res://assets/public-pixel-font/PublicPixel-rv0pA.ttf" id="1_qiej0"]
+
+[resource]
+default_font = ExtResource("1_qiej0")
+Control/colors/font = Color(0, 0, 0, 1)
