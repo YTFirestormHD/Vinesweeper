@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dmf1t1os2pri4"]
 
-[ext_resource type="Script" uid="uid://ds580suqjskmd" path="res://bossfight.gd" id="1_o1ftu"]
+[ext_resource type="Script" path="res://bossfight.gd" id="1_o1ftu"]
 [ext_resource type="Texture2D" uid="uid://b6m81j5dtrlmi" path="res://assets/bg_images/pixel_art_small (2).png" id="2_8i0ot"]
-[ext_resource type="Script" path="res://win.gd" id="3_jvqx3"]
-[ext_resource type="Script" path="res://lose.gd" id="4_bpjbp"]
+[ext_resource type="Script" uid="uid://crb33g5udun75" path="res://win.gd" id="3_jvqx3"]
+[ext_resource type="Script" uid="uid://mojxa5e4hlao" path="res://lose.gd" id="4_bpjbp"]
 [ext_resource type="Texture2D" uid="uid://d2e0uol8w1bod" path="res://assets/32x32/Grid_uncovered.png" id="5_3eyxd"]
 [ext_resource type="Texture2D" uid="uid://byjmsfuslnw1t" path="res://assets/32x32/Grid_uncovered_1.png" id="6_l6uqc"]
 [ext_resource type="Texture2D" uid="uid://b4goagqdert2" path="res://assets/32x32/CoveredGrid_grass.png" id="7_ibnsx"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfille8ctp1t2" path="res://assets/32x32/Grid_uncovered_6.png" id="13_fk23w"]
 [ext_resource type="Texture2D" uid="uid://xonib762o8ik" path="res://assets/32x32/Grid_uncovered_7.png" id="14_rodmp"]
 [ext_resource type="Texture2D" uid="uid://dnvbv0dyf74rx" path="res://assets/32x32/Grid_uncovered_8.png" id="15_1hkhk"]
-[ext_resource type="Script" uid="uid://cdica7p8855ps" path="res://boss_tml.gd" id="16_nfw58"]
+[ext_resource type="Script" path="res://boss_tml.gd" id="16_nfw58"]
 [ext_resource type="Script" uid="uid://c3h0mjcd6c2oe" path="res://timer_display.gd" id="17_35u2y"]
 [ext_resource type="Script" uid="uid://clrp88noqtby4" path="res://level_display_during_game.gd" id="18_h20yd"]
 

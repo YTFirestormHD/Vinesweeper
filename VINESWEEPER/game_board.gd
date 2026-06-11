@@ -4,11 +4,18 @@ extends Node2D
 @onready var tml: TileMapLayer = $board
 @onready var lose: VBoxContainer = $Background/Result/MarginContainer/Lose
 @onready var win: VBoxContainer = $Background/Result/MarginContainer/Win
+@onready var dead: VBoxContainer = $Background/Result/MarginContainer/Dead
 @onready var timer: Label = $Timer
 @onready var level_display_during_game: Label = $Level_display_during_game
 @onready var level: Label = $Level
 @onready var cam: Camera2D = $board/Camera2D
+@onready var heart_1: TextureRect = $Background/Hearts/heart_1
+@onready var heart_2: TextureRect = $Background/Hearts/heart_2
+@onready var heart_3: TextureRect = $Background/Hearts/heart_3
+
 var delta = 1/60
+var heart_dead = preload("res://assets/other/heart_dead.png")
+var heart = preload("res://assets/other/heart.png")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +25,7 @@ func _ready() -> void:
 	options.visible = false
 	win.visible = false
 	lose.visible = false
+	dead.visible = false
 
 
 func _input(event: InputEvent) -> void:
@@ -66,26 +74,30 @@ func load_background():
 func load_displays():
 	timer.set_position(Vector2(-(get_viewport_rect().size.x/2-cam.position.x),-(get_viewport_rect().size.y/2-cam.position.y)))
 	level.set_position(Vector2(-(get_viewport_rect().size.x/2-cam.position.x),-(get_viewport_rect().size.y/2-cam.position.y)+20))
+	load_lives()
 
 
-func result(result_win):
+func load_lives():
+	var hearts = [heart_3,heart_2,heart_1]
+	for i in hearts:
+		i.texture = heart_dead
+	for i in range(GLOBAL.lives):
+		hearts[i].texture = heart
+	
+
+
+func result(res):
 	#true = win
-	if result_win == true:
+	if res == "win":
 		tml.visible = false
 		win.visible = true
-	else:
+		dead.visible = false
+	elif res == "lose":
 		tml.visible = false
 		lose.visible = true
-		reset_game()
+		dead.visible = false
+	else:
+		tml.visible = false
+		lose.visible = false
+		dead.visible = true
 	GLOBAL.board_revealed = false
-
-
-func reset_game():
-	GLOBAL.board_revealed = false
-	GLOBAL.difficulty_board_size = GLOBAL.difficulty_board_size_basis
-	GLOBAL.max_bombs = GLOBAL.max_bombs_basis
-	GLOBAL.current_level = 1
-	GLOBAL.coins = 0
-	GLOBAL.new_coins = 0
-	GLOBAL.map_done = false
-	GLOBAL.items = GLOBAL.start_items

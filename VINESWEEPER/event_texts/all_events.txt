@@ -18,13 +18,13 @@ _end_
 
 a list of all actions and what type of value they need:
 	heal : "integer"
-	heal% : "integer"				<-- Heals a percantage of your current max_hp
+	heal_p : "integer"				<-- Heals a percantage of your current max_hp
 	damage : "integer"
-	damage% : "integer"				<-- Deals a percantage amount of your current hp
+	damage_p : "integer"				<-- Deals a percantage amount of your current hp
 	lose_coins : "integer"
-	lose_coins% : "integer"			<-- Amount will be calculated using your current amount of coins. Prefered over a fixed value.
+	lose_coins_p : "integer"			<-- %-Value, amount will be calculated using your current amount of coins. Prefered over a fixed value.
 	gain_coins : "integer"
-	gain_coins% : "integer"
+	gain_coins_p : "integer"
 	gain_special : "name"			<-- There are currently none
 	lose_special : "name"			<-- There are currently none
 	gain_item : "integer"+"name"	<-- Gives you the named item n-times. Currently available items are listed below. Use the '+'.
@@ -48,8 +48,17 @@ event:
 _end_
 
 event:
-	Finja_1
+	Money_gain_1
 	gain_coins
 	5
-	Finja gave you her pocket money.
+	A stranger gave you their pocket money.
+	How... mysterious
+_end_
+
+event:
+	Money_lose_1
+	lose_coins_p
+	10
+	You noticed a hole in your pocket.
+	You lost %s coins.
 _end_

@@ -1,6 +1,7 @@
 extends Node
 
-
+var start_lives = 3
+var lives = 3
 var current_level: int = 1
 var difficulty_board_size
 var difficulty_board_size_basis: int = 4

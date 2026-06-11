@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_visibility_changed() -> void:
-	set_text("You exploded and died a painful death!\nYour "+str(GLOBAL.coins)+" Coin(s) are all destroyed!")
+	set_text("You hit a bomb but you were able get away!\nHowever, you had to leave your coins behind.")

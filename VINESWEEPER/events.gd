@@ -20,6 +20,7 @@ var c_events = []
 var event_name
 var event_action
 var event_values
+var amount
 #var possible_actions = ["heal","heal_p","damage","damage_p","lose_coins","lose_coins_p","gain_coins","gain_coins_p","gain_special","lose_special","gain_item"]
 
 func _ready() -> void:
@@ -112,7 +113,9 @@ func show_normal_event():
 		print(i)
 		text += current_event.get_slice("\n",3+i)+"\n"
 		print(text)
-	event.text = text
+	if text.contains('%s'):
+		text = text % amount
+	event.text = text 
 	event.visible = true
 	finish()
 	#current_event.visible = true
@@ -149,8 +152,9 @@ func damage_p():
 func lose_coins():
 	pass
 
-func lose_coins_p():
-	pass
+func lose_coins_p(percentage):
+	amount = GLOBAL.coins * int(percentage)/100
+	GLOBAL.coins -= amount
 
 func gain_coins(value):
 	GLOBAL.coins += int(value)

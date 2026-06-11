@@ -107,17 +107,22 @@ func _input(event : InputEvent) -> void:
 
 
 func win():
-	print("*************************\nYOU WIN\n*************************")
+	$"../Timer".set_process(false)
+	#print("*************************\nYOU WIN\n*************************")
 	calc_income()
 	game_over = true
-	$"../Timer".set_process(false)
-	$"..".result(true)
+	$"..".result("win")
 
-func death():
-	print("*************************\nYOU BLEW UP\n*************************")
-	game_over = true
+func lose():
 	$"../Timer".set_process(false)
-	$"..".result(false)
+	game_over = true
+	GLOBAL.lives -= 1
+	$"..".load_lives()
+	#print("*************************\nYOU BLEW UP\n*************************")
+	if GLOBAL.lives > 0:
+		$"..".result("lose")
+	else:
+		$"..".result("dead")
 
 
 func generate_bombs(safe):
@@ -146,7 +151,7 @@ func generate_bombs(safe):
 func reveal(clicked):
 	if get_cell_source_id(get_used_cells()[clicked]) == 10:
 		if BOMB_POSITIONS.has(clicked):
-			death()
+			lose()
 		else:
 			NO_BOMBS.erase(clicked)
 			REVEALED.append(clicked)

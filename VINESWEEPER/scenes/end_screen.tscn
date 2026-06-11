@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cst3koy0hdjtd"]
 
 [ext_resource type="Script" uid="uid://cs687v1jdwo7h" path="res://end_screen.gd" id="1_87vmq"]
-[ext_resource type="Texture2D" uid="uid://bjw0lhk6t0kyg" path="res://assets/bg_images/Gemini_Generated_Image_bsslz0bsslz0bssl-clean.png" id="2_g44xs"]
+[ext_resource type="Texture2D" uid="uid://lqvi5n3ol4qi" path="res://assets/bg_images/bg_normal.png" id="2_g44xs"]
 [ext_resource type="Texture2D" uid="uid://b1c7xhxji4r11" path="res://assets/ui_main_menu_design/Schriftzug_Menu_Styled.png" id="3_vj8vg"]
 [ext_resource type="Script" uid="uid://c26sa2s5qr8hg" path="res://final_coins.gd" id="4_plosh"]
 

@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b6m81j5dtrlmi" path="res://assets/bg_images/pixel_art_small (2).png" id="2_eerdt"]
 [ext_resource type="Script" uid="uid://crb33g5udun75" path="res://win.gd" id="3_2sbk6"]
 [ext_resource type="Script" uid="uid://mojxa5e4hlao" path="res://lose.gd" id="4_54ie0"]
+[ext_resource type="Script" uid="uid://cfx5wvfxiqy88" path="res://dead.gd" id="5_2sbk6"]
 [ext_resource type="Texture2D" uid="uid://d2e0uol8w1bod" path="res://assets/32x32/Grid_uncovered.png" id="5_840ua"]
+[ext_resource type="Texture2D" uid="uid://87afkghc3ahf" path="res://assets/other/heart_dead.png" id="6_2sbk6"]
 [ext_resource type="Texture2D" uid="uid://byjmsfuslnw1t" path="res://assets/32x32/Grid_uncovered_1.png" id="6_nupcc"]
 [ext_resource type="Texture2D" uid="uid://b4goagqdert2" path="res://assets/32x32/CoveredGrid_grass.png" id="7_faqeg"]
 [ext_resource type="Texture2D" uid="uid://bn621eyl8cxgd" path="res://assets/32x32/FlaggedGrid_grass.png" id="8_nev5x"]
@@ -170,12 +172,51 @@ text = "YOU BLEW UP!!!
 :("
 script = ExtResource("4_54ie0")
 
-[node name="Back_Button" type="Button" parent="Background/Result/MarginContainer/Lose" unique_id=384991618]
+[node name="Continue_Button" type="Button" parent="Background/Result/MarginContainer/Lose" unique_id=1670775768]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xrvgy")
+text = "Continue"
+
+[node name="Dead" type="VBoxContainer" parent="Background/Result/MarginContainer" unique_id=2040039657]
+layout_mode = 2
+
+[node name="Dead" type="Label" parent="Background/Result/MarginContainer/Dead" unique_id=199628127]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hhvcl")
+text = "YOU BLEW UP!!!
+:("
+script = ExtResource("5_2sbk6")
+
+[node name="Back_Button" type="Button" parent="Background/Result/MarginContainer/Dead" unique_id=146041514]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xrvgy")
 text = "BACK to Main Menu "
+
+[node name="Hearts" type="HBoxContainer" parent="Background" unique_id=965206505]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 16.0
+offset_right = 1072.0
+offset_bottom = 64.0
+
+[node name="heart_1" type="TextureRect" parent="Background/Hearts" unique_id=1836630472]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_2sbk6")
+
+[node name="heart_2" type="TextureRect" parent="Background/Hearts" unique_id=1514876957]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_2sbk6")
+
+[node name="heart_3" type="TextureRect" parent="Background/Hearts" unique_id=718597315]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_2sbk6")
 
 [node name="board" type="TileMapLayer" parent="." unique_id=686937696]
 process_mode = 3
@@ -214,6 +255,7 @@ grow_vertical = 0
 text = "HI"
 
 [node name="Options" type="Panel" parent="board/Camera2D" unique_id=1721960470]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 15
 anchor_right = 1.0
@@ -326,8 +368,10 @@ script = ExtResource("21_unq15")
 [connection signal="visibility_changed" from="Background/Result/MarginContainer/Win/Win" to="Background/Result/MarginContainer/Win/Win" method="_on_visibility_changed"]
 [connection signal="pressed" from="Background/Result/MarginContainer/Win/Continue_Button" to="." method="_on_continue_button_pressed"]
 [connection signal="visibility_changed" from="Background/Result/MarginContainer/Lose/Lose" to="Background/Result/MarginContainer/Lose/Lose" method="_on_visibility_changed"]
-[connection signal="pressed" from="Background/Result/MarginContainer/Lose/Back_Button" to="." method="_on_back_button_pressed"]
-[connection signal="visibility_changed" from="Background/Result/MarginContainer/Lose/Back_Button" to="Background/Result/MarginContainer/Lose/Lose" method="_on_back_button_visibility_changed"]
+[connection signal="pressed" from="Background/Result/MarginContainer/Lose/Continue_Button" to="." method="_on_continue_button_pressed"]
+[connection signal="visibility_changed" from="Background/Result/MarginContainer/Dead/Dead" to="Background/Result/MarginContainer/Dead/Dead" method="_on_visibility_changed"]
+[connection signal="pressed" from="Background/Result/MarginContainer/Dead/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="visibility_changed" from="Background/Result/MarginContainer/Dead/Back_Button" to="Background/Result/MarginContainer/Dead/Dead" method="_on_back_button_visibility_changed"]
 [connection signal="pressed" from="board/Camera2D/Continue_Panel/Button" to="board" method="_on_button_pressed"]
 [connection signal="pressed" from="board/Camera2D/Options/VBoxContainer/VBoxContainer2/Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="board/Camera2D/Options/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

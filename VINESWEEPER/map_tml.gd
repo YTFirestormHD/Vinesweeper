@@ -211,6 +211,8 @@ func enter_level(clicked):
 	else:
 		if get_cell_source_id(clicked) == 1:
 			get_tree().change_scene_to_file("res://scenes/events.tscn")
+		elif get_cell_source_id(clicked) == 2:
+			get_tree().change_scene_to_file("res://scenes/shop.tscn")
 		else:
 			GLOBAL.difficulty_board_size += (GLOBAL.current_level - 1) * 1.2
 			if GLOBAL.difficulty_board_size > 18:
@@ -252,19 +254,16 @@ func generate_type(node,row):
 	if row <= 1:
 		path_nodes[node] = 3
 	elif row == len(all_rows)-2:
-		#path_nodes[node] = 2
-		path_nodes[node] = 1
-		#Shop is currently replaced by event
+		path_nodes[node] = 2
 	elif row == len(all_rows)-1:
 		path_nodes[node] = 4
 		#Ende (wird vielleicht zu Boss)
-	elif roll < 10:
+	elif roll < 20:
 		path_nodes[node] = 1
 		#Random Event
-	elif roll < 30:
-		#path_nodes[node] = 2
-		path_nodes[node] = 1
-		#Shop is currently replaced by event
+	elif roll < 40:
+		path_nodes[node] = 2
+		#Shop
 	else:
 		path_nodes[node] = 3
 		#Normal Encounter

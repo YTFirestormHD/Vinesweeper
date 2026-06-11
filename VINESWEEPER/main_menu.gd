@@ -18,7 +18,7 @@ func _ready() -> void:
 	GLOBAL.max_bombs = GLOBAL.max_bombs_basis
 	continue_button.visible = false
 	credits_button.visible = false
-	if GLOBAL.map_done:
+	if GLOBAL.map_done and GLOBAL.lives != 0:
 		continue_button.visible = true
 	if GLOBAL.beaten_once:
 		credits_button.visible = true
@@ -68,7 +68,6 @@ func _input(event):
 		options.visible = false
 		margin_container.visible = true
 		GLOBAL.difficulty_board_size = board_size_slider.value
-		
 	if event.is_action_pressed("F11"):
 		if GLOBAL.fullscreen:
 			go_fullscreen(false)
@@ -97,6 +96,7 @@ func _on_options_close_pressed() -> void:
 
 
 func reset_game():
+	GLOBAL.lives = GLOBAL.start_lives
 	GLOBAL.board_revealed = false
 	GLOBAL.difficulty_board_size = GLOBAL.difficulty_board_size_basis
 	GLOBAL.max_bombs = GLOBAL.max_bombs_basis

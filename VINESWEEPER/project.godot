@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VINESWEEPER"
-run/main_scene="uid://di33r78orxfu0"
+run/main_scene="uid://fu5alj74u2wm"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
