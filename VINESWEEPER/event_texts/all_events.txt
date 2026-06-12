@@ -52,7 +52,8 @@ event:
 	gain_coins
 	5
 	A stranger gave you their pocket money.
-	How... mysterious
+	How... mysterious.
+	You gained %s coins.
 _end_
 
 event:

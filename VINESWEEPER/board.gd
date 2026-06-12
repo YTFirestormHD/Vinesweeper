@@ -183,19 +183,28 @@ func check_reveal(cell):
 
 
 func calc_income():
-	var time_taken = GLOBAL.time_minutes*60 * GLOBAL.time_seconds
+	var time_taken = GLOBAL.time_minutes*60 + GLOBAL.time_seconds
 	var correct = 0
 	var incorrect = 0
+	var all_correct = false
 	for i in FLAGGED:
 		if i in BOMB_POSITIONS:
 			correct += 1
 		else:
 			incorrect += 1
+	if FLAGGED == BOMB_POSITIONS:
+		all_correct = true
 	#print("###########")
 	#print("cor: "+str(correct))
 	#print("inc: "+str(incorrect))
 	#print("time:"+str(time_taken/5))
+	if all_correct:
+		correct *= 2
+	print(correct)
+	print(time_taken/20)
+	print(incorrect)
 	var new_coins =  correct - time_taken/20 - incorrect
+	print(new_coins)
 	GLOBAL.new_coins = new_coins if new_coins > 0 else 0 
 	#print("new: "+str(GLOBAL.new_coins))
 	#print("############")

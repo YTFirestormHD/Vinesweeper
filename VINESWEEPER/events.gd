@@ -157,6 +157,7 @@ func lose_coins_p(percentage):
 	GLOBAL.coins -= amount
 
 func gain_coins(value):
+	amount = value
 	GLOBAL.coins += int(value)
 
 func gain_coins_p():
