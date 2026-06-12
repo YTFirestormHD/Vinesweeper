@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://oh7in52g04ng"]
+
+[ext_resource type="Script" uid="uid://55y4tjxgyi32" path="res://shop.gd" id="1_1l46r"]
+[ext_resource type="Texture2D" uid="uid://wo1jmdtobyg4" path="res://assets/bg_images/pixel_art_small (3).png" id="2_2fc2m"]
+[ext_resource type="Texture2D" uid="uid://e2taipbuani4" path="res://assets/other/pixel_art_small (4).png" id="3_8r1wq"]
+[ext_resource type="Texture2D" uid="uid://c2xohkinfcnwm" path="res://assets/other/bag.png" id="4_ajxib"]
+[ext_resource type="Texture2D" uid="uid://btvcska2bi6g0" path="res://assets/other/speech_bubble.png" id="5_2fc2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_032fp"]
+
+[node name="Control" type="Control" unique_id=81631313]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1l46r")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=273192939]
+modulate = Color(0.5716493, 0.5716493, 0.57164925, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2fc2m")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=867670369]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 615.6279
+offset_bottom = 816.0
+texture = ExtResource("3_8r1wq")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=738368931]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 128.0
+offset_right = 1047.6309
+offset_bottom = 496.0
+texture = ExtResource("4_ajxib")
+expand_mode = 3
+
+[node name="slot_1" type="TextureButton" parent="TextureRect3" unique_id=267661940]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 82.0
+offset_right = 202.0
+offset_bottom = 180.0
+stretch_mode = 3
+
+[node name="slot_2" type="TextureButton" parent="TextureRect3" unique_id=1129314194]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 82.0
+offset_right = 307.0
+offset_bottom = 180.0
+stretch_mode = 3
+
+[node name="slot_3" type="TextureButton" parent="TextureRect3" unique_id=36715008]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 188.0
+offset_right = 202.0
+offset_bottom = 288.0
+stretch_mode = 3
+
+[node name="slot_4" type="TextureButton" parent="TextureRect3" unique_id=420387636]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 188.0
+offset_right = 307.0
+offset_bottom = 288.0
+stretch_mode = 3
+
+[node name="return" type="Button" parent="." unique_id=817906372]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 568.0
+offset_right = 1136.0
+offset_bottom = 632.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_032fp")
+text = "Return to Levels"
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=571081586]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 16.0
+offset_right = 1080.0
+offset_bottom = 136.0
+texture = ExtResource("5_2fc2m")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect4" unique_id=632619422]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 440.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5 Coins each"
+
+[connection signal="pressed" from="TextureRect3/slot_1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="TextureRect3/slot_2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="TextureRect3/slot_3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="TextureRect3/slot_4" to="." method="_on_slot_4_pressed"]
+[connection signal="pressed" from="return" to="." method="_on_return_pressed"]
