@@ -19,6 +19,6 @@ func _input(event):
 
 func _on_visibility_changed() -> void:
 	var pos = get_begin()
-	print(pos)
+	#print(pos)
 	global_position = Vector2i(0,0)#Vector2i(pos.x/2,pos.y/2)
 	pass # Replace with function body.

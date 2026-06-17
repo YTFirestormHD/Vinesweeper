@@ -277,8 +277,8 @@ func set_types():
 			else:
 				set_cell(i,path_nodes[i]+10,Vector2(0,0))
 	else:
-		print(path_nodes)
-		print(previous_nodes[previous_node])
+		#print(path_nodes)
+		#print(previous_nodes[previous_node])
 		#if current_level != len(all_rows):
 		#set_cell(all_rows[len(all_rows)][0],path_nodes[all_rows[len(all_rows)-1][0]],Vector2(0,0))
 		for i in path_nodes:

@@ -17,7 +17,7 @@ func _ready() -> void:
 		for i in slots:
 			if randf() < 0.25:
 				item_available.set(i,"add_check")
-				print(i)
+				#print(i)
 				i.texture_normal = check
 				
 			else:
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 
 func add_check(slot):
-	print(slot)
+	#print(slot)
 	if GLOBAL.coins >= 5:
 		GLOBAL.coins -= 5
 		GLOBAL.items["check"] += 1

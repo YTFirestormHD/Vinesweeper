@@ -107,14 +107,14 @@ func _input(event : InputEvent) -> void:
 
 
 func win():
-	print("*************************\nYOU WIN\n*************************")
+	#print("*************************\nYOU WIN\n*************************")
 	calc_income()
 	game_over = true
 	$"../Timer".set_process(false)
 	$"..".result(true)
 
 func death():
-	print("*************************\nYOU BLEW UP\n*************************")
+	#print("*************************\nYOU BLEW UP\n*************************")
 	game_over = true
 	$"../Timer".set_process(false)
 	$"..".result(false)

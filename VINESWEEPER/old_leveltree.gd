@@ -14,9 +14,9 @@ func _ready() -> void:
 	levels = [level1, level2, level3, level4]
 	if GLOBAL.current_level != 1:
 		cam.global_position.y = (levels[GLOBAL.current_level-1].get_screen_position().y - get_viewport_rect().size.y/2)
-		print(get_viewport_rect().size.y/2)
-		print(cam.global_position)
-		print(levels[GLOBAL.current_level-1].get_screen_position().y)
+		#print(get_viewport_rect().size.y/2)
+		#print(cam.global_position)
+		#print(levels[GLOBAL.current_level-1].get_screen_position().y)
 	for level in levels:
 		level.disabled = true
 	levels[GLOBAL.current_level-1].disabled = false		#Not possible to generate random levels with this system. Will keep this for now, but i´ll optimize/change it once i got time.
@@ -37,9 +37,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("down") and not event.is_action_released("down"):
 		if cam.global_position.y + get_viewport_rect().size.y + 2 <= map.size.y-10:
 			cam.global_position.y += 10
-			print(cam.global_position.y + get_viewport_rect().size.y + 2)
-			print(map.size.y)
-			print("///")
+			#print(cam.global_position.y + get_viewport_rect().size.y + 2)
+			#print(map.size.y)
+			#print("///")
 
 
 func _on_number_pressed() -> void:

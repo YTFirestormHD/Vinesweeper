@@ -27,7 +27,7 @@ func _ready() -> void:
 	board_size_slider.set_value(GLOBAL.difficulty_board_size)
 	max_bombs_slider.set_value(GLOBAL.max_bombs)
 	fullscreen_button.set_pressed_no_signal(GLOBAL.fullscreen)
-	print(GLOBAL.board_revealed)
+	#print(GLOBAL.board_revealed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

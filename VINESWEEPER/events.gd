@@ -94,7 +94,7 @@ func load_events_from_file(file):
 
 func show_normal_event():
 	current_event = events.pick_random()
-	print([current_event])
+	#print([current_event])
 	event_name = current_event.get_slice("\n",0)
 	#print(event_name)
 	event_action = current_event.get_slice("\n",1)
@@ -110,9 +110,9 @@ func show_normal_event():
 		callable.call(event_values.get_slice(";",i))
 	var text: String
 	for i in range(y):
-		print(i)
+		#print(i)
 		text += current_event.get_slice("\n",3+i)+"\n"
-		print(text)
+		#print(text)
 	if text.contains('%s'):
 		text = text % amount
 	event.text = text 

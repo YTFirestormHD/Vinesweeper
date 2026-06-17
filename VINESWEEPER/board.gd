@@ -200,11 +200,11 @@ func calc_income():
 	#print("time:"+str(time_taken/5))
 	if all_correct:
 		correct *= 2
-	print(correct)
-	print(time_taken/20)
-	print(incorrect)
+	#print(correct)
+	#print(time_taken/20)
+	#print(incorrect)
 	var new_coins =  correct - time_taken/20 - incorrect
-	print(new_coins)
+	#print(new_coins)
 	GLOBAL.new_coins = new_coins if new_coins > 0 else 0 
 	#print("new: "+str(GLOBAL.new_coins))
 	#print("############")

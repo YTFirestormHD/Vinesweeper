@@ -35,7 +35,7 @@ a list of all items:
 a list of all specials:
 	
 
-to make your event become active, just remove the # before event/c_event
+!!! to make your event become active, just remove the # before event/c_event !!!
 ADD EVENTS BELOW HERE!
 
 event:
