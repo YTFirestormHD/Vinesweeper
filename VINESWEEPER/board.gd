@@ -222,6 +222,6 @@ func _on_button_pressed() -> void:
 
 
 func _on_check_pressed() -> void:
-	if GLOBAL.board_revealed and FLAGGED != BOARD and GLOBAL.items["check"] > 0:
+	if GLOBAL.board_revealed and not NO_BOMBS.is_empty() and FLAGGED != BOARD and FLAGGED != BOMB_POSITIONS and GLOBAL.items["check"] > 0:
 		GLOBAL.items["check"] -= 1
-		reveal(BOARD.pick_random())
+		reveal(NO_BOMBS.pick_random())
