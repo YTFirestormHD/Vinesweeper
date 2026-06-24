@@ -1,4 +1,5 @@
-# Vinesweeper
+<img width="512" height="128" alt="Schriftzug_Menu_Styled" src="https://github.com/user-attachments/assets/c5402a59-493a-41ca-a677-e77a69e0ffe1" />
+
 
 **This schoolproject is a Minesweeper-Roguelite.**
 
@@ -26,9 +27,10 @@ Split pathways, random events, a whole bunch of possible item combinations and m
 
 ***Use the opportunity, find money and upgrade your character, because without good upgrades, beating the bosses to come is surely going to be a challenge!***
 
+<img width="1132" height="652" alt="grafik" src="https://github.com/user-attachments/assets/68cd0bd3-c257-4ee0-aaac-492cf50827f3" />
 
 
-## Boss-Battles:
+## <s>Boss-Battles:
   + At the end of every stage (and maybe through certain random events, who knows...) you'll encounter a boss.
   + Bosses act as a test of skill and how well you have prepared. Be careful, they could end your run!
   + Bossfights work quite different from the standard gameplay, putting a lot more pressure onto you.
@@ -39,7 +41,7 @@ Split pathways, random events, a whole bunch of possible item combinations and m
   + Some bosses might have special attacks or hide surprises on the board.
 
 ***Can you beat the boss before your health runs out?***
-
+</s>
 
 ## Game-Mechanics
 
@@ -65,6 +67,13 @@ The *Speed-Stat* defines the speed of your attack-cycle relative to the one of t
 
 In most cases you can see the stats of your opponent so you can compare your current stats to them.
 
+
+## Level-Tree
+
++ The interactive level-tree consists of many chooseable paths, which will affect your playing experience. 
++ The combinations of levels changes every playthrough to ensure for a unique playing experience.
+
+<img width="1150" height="647" alt="grafik" src="https://github.com/user-attachments/assets/5ebb6422-4f72-4f26-8820-8a3739db6f4a" />
 
 
 More infos about the project are found in index.html or just click the link in the "About" section (once a version is playable, you'll find a download there too).
