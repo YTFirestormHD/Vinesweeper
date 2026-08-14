@@ -11,6 +11,8 @@ var CHECK_NEXT = []
 var BOARD = []
 var board_size
 var REVEALED = []
+var AROUND_X = [-1, -1, -1,  0,  0,  1,  1,  1]
+var AROUND_Y = [-1,  0,  1, -1,  1, -1,  0,  1]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -80,7 +82,7 @@ func _input(event : InputEvent) -> void:
 			var clicked = get_used_cells().find(Vector2(m_pos.x/32,m_pos.y/32))
 			if (event.is_action_pressed("action")):
 				if GLOBAL.board_revealed == false:
-					generate_bombs(clicked)
+					generate_bombs(get_used_cells()[clicked])
 				reveal(clicked)
 					#print("\n***"+str(FLAGGED)+" =?= "+str(BOMB_POSITIONS)+"***\n")
 
@@ -102,7 +104,6 @@ func _input(event : InputEvent) -> void:
 			win()
 
 		for i in CHECK_NEXT:
-			#check_reveal(i)
 			reveal(i)
 
 
@@ -125,8 +126,15 @@ func lose():
 		$"..".result("dead")
 
 
-func generate_bombs(safe):
+func generate_bombs(safe_1):
 	var board_size = GLOBAL.board_size_x * GLOBAL.board_size_y
+	var safe = []
+	
+	safe.append(safe_1)
+	for i in range(8):
+		var safe_around = safe_1 + Vector2i(AROUND_X[i], AROUND_Y[i])
+		safe.append(safe_around)
+	print(safe)
 	#print("bsz+mxb")
 	#print(board_size)
 	var max_bombs = ceil(board_size*GLOBAL.max_bombs/100)
@@ -137,7 +145,7 @@ func generate_bombs(safe):
 	while BOMB_POSITIONS.front() == null:
 		for i in range(max_bombs):
 			do_bomb = randi_range(0,board_size-1)
-			if do_bomb not in BOMB_POSITIONS and do_bomb != safe:
+			if do_bomb not in BOMB_POSITIONS and get_used_cells()[do_bomb] not in safe:
 				BOMB_POSITIONS.append(do_bomb)
 				BOARD.erase(do_bomb)
 	NO_BOMBS = BOARD
@@ -160,26 +168,30 @@ func reveal(clicked):
 
 
 func check_around(clicked) -> int:
-	#var m_pos: Vector2 = get_global_mouse_position()
+	var cell_pos = get_used_cells()[clicked]
 	var around_count: int = 0
-	var AROUND_X = [-1,-1,-1,0,0,+1,+1,+1]
-	var AROUND_Y = [-1,0,+1,-1,+1,-1,0,+1]
-	var any_around = false
+	var valid_neighbors = []
+
 	for i in range(8):
-		#print(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i]))
-		#print(get_cell_source_id(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i])))
-		if BOMB_POSITIONS.has(get_used_cells().find(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i]))):
-			around_count += 1
-			any_around = true
-		elif get_cell_source_id(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i])) == 10 and any_around == false:
-			if not CHECK_NEXT.has(get_used_cells().find(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i]))):
-				CHECK_NEXT.append(get_used_cells().find(get_used_cells()[clicked]-Vector2i(AROUND_X[i],AROUND_Y[i])))
-				#print("CHECK_NEXT: "+str(CHECK_NEXT))
+		var neighbor_pos = cell_pos + Vector2i(AROUND_X[i], AROUND_Y[i])
+		var neighbor_index = get_used_cells().find(neighbor_pos)
+		
+		# Ensure the neighbor actually exists on the board
+		if neighbor_index != -1:
+			if BOMB_POSITIONS.has(neighbor_index):
+				around_count += 1
+			else:
+				valid_neighbors.append(neighbor_index)
+
+	# Classic Minesweeper rule: Only cascade/auto-reveal neighbors if 0 bombs are adjacent
+	if around_count == 0:
+		for neighbor_index in valid_neighbors:
+			# Check if the tile is still hidden (source id 10) and not already queued or revealed
+			if get_cell_source_id(get_used_cells()[neighbor_index]) == 10:
+				if not CHECK_NEXT.has(neighbor_index) and not REVEALED.has(neighbor_index):
+					CHECK_NEXT.append(neighbor_index)
+
 	return around_count
-
-
-func check_reveal(cell):
-	pass
 
 
 func calc_income():

@@ -1,6 +1,6 @@
 Here you can add events quickly without needing to code them. Down below you can see two examples:
 
-#event:					<-- Type of the event
+#event:					<-- Type of the event, strip "#" for actual use
 	test event			<-- This is your events name
 	action 				<-- This is the action your event triggers. If you have multiple actions, split them with ';'. All possible actions are in a list below.
 	value				<-- This is the value your action has. If you have multiple actions, be careful that this is at the same position as the action. Again, split with ';'.
@@ -35,7 +35,6 @@ a list of all items:
 a list of all specials:
 	
 
-!!! to make your event become active, just remove the # before event/c_event !!!
 ADD EVENTS BELOW HERE!
 
 event:
